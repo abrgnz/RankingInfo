@@ -1,0 +1,210 @@
+<%= form_for @trial, :html => { :class => "form-horizontal trial" } do |f| %>
+<div class="row">
+  <div class='col-md-4 col-xs-4 text-center'>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), trials_path, :class => 'btn btn-default' %>
+  </div>
+  <div class='col-md-4 col-xs-4 text-center'>
+    <p class="title">Nuevo Juicio</p>
+  </div>
+
+  <div class='col-md-4 col-xs-4 text-center'>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+  </div>
+</div>
+<div class="divider">
+
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <% if @trial.errors.any? %>
+      <div id="error_expl" class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= pluralize(@trial.errors.count, "error") %> prohibited this trial from being saved:</h3>
+        </div>
+        <div class="panel-body">
+          <ul>
+          <% @trial.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2>Actor</h2>
+  </div>
+</div>
+<div class="row">  <!-- row -->
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <%= f.label :actor_nombre, :class => 'control-label' %>
+      <%= f.text_field :actor_nombre, :class => 'form-control' %>
+      <%= error_span(@trial[:actor_nombre]) %>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <%= f.label :actor_apellido_paterno, :class => 'control-label' %>
+      <%= f.text_field :actor_apellido_paterno, :class => 'form-control' %>
+      <%= error_span(@trial[:actor_apellido_paterno]) %>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <%= f.label :actor_apellido_materno, :class => 'control-label' %>
+        <%= f.text_field :actor_apellido_materno, :class => 'form-control' %>
+      <%= error_span(@trial[:actor_apellido_materno]) %>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Demandado</h2>
+  </div>
+</div>
+<div class='row'>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+    <%= f.label :demandado_nombre, :class => 'control-label' %>
+    <%= f.text_field :demandado_nombre, :class => 'form-control' %>
+    <%= error_span(@trial[:demandado_nombre]) %>
+  </div>
+</div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+    <%= f.label :demandado_apellido_paterno, :class => 'control-label' %>
+    <%= f.text_field :demandado_apellido_paterno, :class => 'form-control' %>
+    <%= error_span(@trial[:demandado_apellido_paterno]) %>
+  </div>
+</div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+    <%= f.label :demandado_apellido_materno, :class => 'control-label' %>
+    <%= f.text_field :demandado_apellido_materno, :class => 'form-control' %>
+    <%= error_span(@trial[:demandado_apellido_materno]) %>
+  </div>
+</div>
+</div>
+<div class='divider'></div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Abogado Patrono</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+    <%= f.label :abogado_patrono_nombre, :class => 'control-label' %>
+    <%= f.text_field :abogado_patrono_nombre, :class => 'form-control' %>
+    <%= error_span(@trial[:abogado_patrono_nombre]) %>
+  </div>
+</div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+    <%= f.label :abogado_patrono_apellido_paterno, :class => 'control-label' %>
+    <%= f.text_field :abogado_patrono_apellido_paterno, :class => 'form-control' %>
+    <%= error_span(@trial[:abogado_patrono_apellido_paterno]) %>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+    <%= f.label :abogado_patrono_apellido_materno, :class => 'control-label' %>
+    <%= f.text_field :abogado_patrono_apellido_materno, :class => 'form-control' %>
+    <%= error_span(@trial[:abogado_patrono_apellido_materno]) %>
+    </div>
+  </div>
+</div>
+<div class='divider'></div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Información del Juicio</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+        <%= f.label :tipo_juicio, :class => 'control-label' %>
+          <%= f.text_field :tipo_juicio, :class => 'form-control' %>
+        <%= error_span(@trial[:tipo_juicio]) %>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <%= f.label :numero_expediente, :class => 'control-label' %>
+          <%= f.text_field :numero_expediente, :class => 'form-control' %>
+        <%= error_span(@trial[:numero_expediente]) %>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <%= f.label :juzgado, :class => 'control-label' %>
+          <%= f.text_field :juzgado, :class => 'form-control' %>
+        <%= error_span(@trial[:juzgado]) %>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <%= f.label :distrito_judicial_string, :class => 'control-label' %>
+          <%= f.text_field :distrito_judicial_string, :class => 'form-control' %>
+        <%= error_span(@trial[:distrito_judicial_string]) %>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <%= f.label :ultima_actuacion, :class => 'control-label' %>
+      <%= f.text_field :ultima_actuacion, :class => 'form-control' %>
+      <%= error_span(@trial[:ultima_actuacion]) %>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <%= f.label :estado_procesal, :class => 'control-label' %>
+      <%= f.text_field :estado_procesal, :class => 'form-control' %>
+      <%= error_span(@trial[:estado_procesal]) %>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <%= f.label :fecha_vencimiento_termino, :class => 'control-label' %>
+      <%= f.text_field :fecha_vencimiento_termino, :class => 'form-control' %>
+    <%= error_span(@trial[:fecha_vencimiento_termino]) %>
+    </div>
+  </div>
+  <div class="col-md-4 form-group"></div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <%= f.label :comentario, :class => 'control-label' %>
+      <%= f.text_field :comentario, :class => 'form-control' %>
+    <%= error_span(@trial[:comentario]) %>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2>Documentos</h2>
+  </div>
+</div>
+<div id='generic_images'>
+  <div id="image_fields">
+    <%= f.fields_for :generic_images do |generic_images| %>
+      <%= render 'shared/generic_image_fields', :f => generic_images %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <%= link_to_add_association 'Añadir Imagen', f, :generic_images,:partial => 'shared/generic_image_fields', class: 'btn btn-default'%>
+    </div>
+  </div>
+</div>
+<% end %>

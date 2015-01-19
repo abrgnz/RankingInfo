@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  actor_nombre: MyString
+  actor_apellido_paterno: MyString
+  actor_apellido_materno: MyString
+  abogado_patrono_nombre: MyString
+  abogado_patrono_apellido_paterno: MyString
+  abogado_patrono_apellido_materno: MyString
+  demandado_nombre: MyString
+  demandado_apellido_paterno: MyString
+  demandado_apellido_materno: MyString
+  tipo_juicio: MyString
+  numero_expediente: MyString
+  juzgado: MyString
+  distrito_judicial_string: MyString
+  ultima_actuacion: MyString
+  estado_procesal: MyString
+  fecha_vencimiento_termino: 2014-12-04
+  comentario: MyText
+
+two:
+  actor_nombre: MyString
+  actor_apellido_paterno: MyString
+  actor_apellido_materno: MyString
+  abogado_patrono_nombre: MyString
+  abogado_patrono_apellido_paterno: MyString
+  abogado_patrono_apellido_materno: MyString
+  demandado_nombre: MyString
+  demandado_apellido_paterno: MyString
+  demandado_apellido_materno: MyString
+  tipo_juicio: MyString
+  numero_expediente: MyString
+  juzgado: MyString
+  distrito_judicial_string: MyString
+  ultima_actuacion: MyString
+  estado_procesal: MyString
+  fecha_vencimiento_termino: 2014-12-04
+  comentario: MyText

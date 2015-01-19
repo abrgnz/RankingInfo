@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  domicilio: MyString
+  calle: MyString
+  no_interior: MyString
+  no_exterior: MyString
+  colonia: MyString
+  ciudad: MyString
+  estado: MyString
+  codigo_postal: MyString
+  municipio: MyString
+  delegacion: MyString
+  telefono_casa: MyString
+  telefono_movil: MyString
+  curp: MyString
+  ife: MyString
+  estado_civil: MyString
+  arrendador_actual: MyString
+  arrendador_anterior: MyString
+  domicilio_anterior: MyString
+  nombre_aval: MyString
+  domicilio_aval: MyString
+  telefono_aval: MyString
+
+two:
+  nombre: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  domicilio: MyString
+  calle: MyString
+  no_interior: MyString
+  no_exterior: MyString
+  colonia: MyString
+  ciudad: MyString
+  estado: MyString
+  codigo_postal: MyString
+  municipio: MyString
+  delegacion: MyString
+  telefono_casa: MyString
+  telefono_movil: MyString
+  curp: MyString
+  ife: MyString
+  estado_civil: MyString
+  arrendador_actual: MyString
+  arrendador_anterior: MyString
+  domicilio_anterior: MyString
+  nombre_aval: MyString
+  domicilio_aval: MyString
+  telefono_aval: MyString

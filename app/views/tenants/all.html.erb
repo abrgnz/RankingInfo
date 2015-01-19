@@ -1,0 +1,72 @@
+
+<h1>Listing tenants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Domicilio</th>
+      <th>Calle</th>
+      <th>No interior</th>
+      <th>No exterior</th>
+      <th>Colonia</th>
+      <th>Ciudad</th>
+      <th>Estado</th>
+      <th>Codigo postal</th>
+      <th>Municipio</th>
+      <th>Delegacion</th>
+      <th>Telefono casa</th>
+      <th>Telefono movil</th>
+      <th>Curp</th>
+      <th>Ife</th>
+      <th>Estado civil</th>
+      <th>Arrendador actual</th>
+      <th>Arrendador anterior</th>
+      <th>Domicilio anterior</th>
+      <th>Nombre aval</th>
+      <th>Domicilio aval</th>
+      <th>Telefono aval</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tenants.each do |tenant| %>
+    <tr>
+      <td><%= tenant.nombre %></td>
+      <td><%= tenant.apellido_paterno %></td>
+      <td><%= tenant.apellido_materno %></td>
+      <td><%= tenant.domicilio %></td>
+      <td><%= tenant.calle %></td>
+      <td><%= tenant.no_interior %></td>
+      <td><%= tenant.no_exterior %></td>
+      <td><%= tenant.colonia %></td>
+      <td><%= tenant.ciudad %></td>
+      <td><%= tenant.estado %></td>
+      <td><%= tenant.codigo_postal %></td>
+      <td><%= tenant.municipio %></td>
+      <td><%= tenant.delegacion %></td>
+      <td><%= tenant.telefono_casa %></td>
+      <td><%= tenant.telefono_movil %></td>
+      <td><%= tenant.curp %></td>
+      <td><%= tenant.ife %></td>
+      <td><%= tenant.estado_civil %></td>
+      <td><%= tenant.arrendador_actual %></td>
+      <td><%= tenant.arrendador_anterior %></td>
+      <td><%= tenant.domicilio_anterior %></td>
+      <td><%= tenant.nombre_aval %></td>
+      <td><%= tenant.domicilio_aval %></td>
+      <td><%= tenant.telefono_aval %></td>
+      <td><%= link_to 'Show', tenant %></td>
+      <td><%= link_to 'Edit', edit_tenant_path(tenant) %></td>
+      <td><%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tenant', new_tenant_path %>

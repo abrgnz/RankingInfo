@@ -1,0 +1,178 @@
+<%- model_class = Trial -%>
+<br><br>
+<div class="row">
+  <div class='col-md-4 col-xs-4 text-center'>
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+    trials_path, :class => 'btn btn-default'  %>
+
+  </div>
+  <div class='col-md-4 col-xs-4 text-center'>
+    <p class="title">Viendo Juicio</p>
+  </div>
+
+  <div class='col-md-4 col-xs-4 text-center'>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    edit_trial_path(@trial), :class => 'btn btn-default' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+    trial_path(@trial),
+    :method => 'delete',
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+    :class => 'btn btn-danger' %>
+
+  </div>
+</div>
+<div class="divider">
+
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Actor</h2>
+  </div>
+</div>
+<div class="row">  <!-- row -->
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>actor_nombre</label>
+      <%= @trial.actor_nombre%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>actor_apellido_paterno</label>
+      <%= @trial.actor_apellido_paterno%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>actor_apellido_materno</label>
+      <%= @trial.actor_apellido_materno%>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Demandado</h2>
+  </div>
+</div>
+<div class='row'>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>demandado_nombre</label>
+      <%= @trial.demandado_nombre%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>demandado_apellido_paterno</label>
+      <%= @trial.demandado_apellido_paterno%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>demandado_apellido_materno</label>
+      <%= @trial.demandado_apellido_materno%>
+    </div>
+  </div>
+</div>
+<div class='divider'></div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Abogado Patrono</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>abogado_patrono_nombre</label>
+      <%= @trial.abogado_patrono_nombre%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>abogado_patrono_apellido_paterno</label>
+      <%= @trial.abogado_patrono_apellido_paterno%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>abogado_patrono_apellido_materno</label>
+      <%= @trial.abogado_patrono_apellido_materno%>
+    </div>
+  </div>
+</div>
+<div class='divider'></div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Información del Juicio</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>tipo_juicio</label>
+      <%= @trial.tipo_juicio%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>numero_expediente</label>
+      <%= @trial.numero_expediente%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>juzgado</label>
+      <%= @trial.juzgado%>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>distrito_judicial_string</label>
+      <%= @trial.distrito_judicial_string%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>ultima_actuacion</label>
+      <%= @trial.ultima_actuacion%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>estado_procesal</label>
+      <%= @trial.estado_procesal%>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>fecha_vencimiento_termino</label>
+      <%= @trial.fecha_vencimiento_termino%>
+    </div>
+  </div>
+  <div class="col-md-4 form-group"></div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label>comentario</label>
+      <%= @trial.comentario%>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2>Documentos</h2>
+  </div>
+</div>
+<% for document in @trial.generic_images %>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <a href="<%= document.document.url %>"><%= document.description %></a>
+    </div>
+  </div>
+<% end %>

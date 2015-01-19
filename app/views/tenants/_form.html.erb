@@ -1,0 +1,113 @@
+<%= form_for(@tenant) do |f| %>
+  <% if @tenant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tenant.errors.count, "error") %> prohibited this tenant from being saved:</h2>
+
+      <ul>
+      <% @tenant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido_paterno %><br>
+    <%= f.text_field :apellido_paterno %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido_materno %><br>
+    <%= f.text_field :apellido_materno %>
+  </div>
+  <div class="field">
+    <%= f.label :domicilio %><br>
+    <%= f.text_field :domicilio %>
+  </div>
+  <div class="field">
+    <%= f.label :calle %><br>
+    <%= f.text_field :calle %>
+  </div>
+  <div class="field">
+    <%= f.label :no_interior %><br>
+    <%= f.text_field :no_interior %>
+  </div>
+  <div class="field">
+    <%= f.label :no_exterior %><br>
+    <%= f.text_field :no_exterior %>
+  </div>
+  <div class="field">
+    <%= f.label :colonia %><br>
+    <%= f.text_field :colonia %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad %><br>
+    <%= f.text_field :ciudad %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.text_field :estado %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo_postal %><br>
+    <%= f.text_field :codigo_postal %>
+  </div>
+  <div class="field">
+    <%= f.label :municipio %><br>
+    <%= f.text_field :municipio %>
+  </div>
+  <div class="field">
+    <%= f.label :delegacion %><br>
+    <%= f.text_field :delegacion %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_casa %><br>
+    <%= f.text_field :telefono_casa %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_movil %><br>
+    <%= f.text_field :telefono_movil %>
+  </div>
+  <div class="field">
+    <%= f.label :curp %><br>
+    <%= f.text_field :curp %>
+  </div>
+  <div class="field">
+    <%= f.label :ife %><br>
+    <%= f.text_field :ife %>
+  </div>
+  <div class="field">
+    <%= f.label :estado_civil %><br>
+    <%= f.text_field :estado_civil %>
+  </div>
+  <div class="field">
+    <%= f.label :arrendador_actual %><br>
+    <%= f.text_field :arrendador_actual %>
+  </div>
+  <div class="field">
+    <%= f.label :arrendador_anterior %><br>
+    <%= f.text_field :arrendador_anterior %>
+  </div>
+  <div class="field">
+    <%= f.label :domicilio_anterior %><br>
+    <%= f.text_field :domicilio_anterior %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre_aval %><br>
+    <%= f.text_field :nombre_aval %>
+  </div>
+  <div class="field">
+    <%= f.label :domicilio_aval %><br>
+    <%= f.text_field :domicilio_aval %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_aval %><br>
+    <%= f.text_field :telefono_aval %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
