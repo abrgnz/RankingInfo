@@ -235,17 +235,11 @@
     height: 1px;
     position: relative;
     background-color: #dadee1;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  .marg{
-    margin: 0 20px 0 40px;
-  }
-  .margin-form{
-    margin: 0 10px 0 10px;
-  }
+    margin-top: 30px;
+    margin-bottom: 10px;
 
+  }
   .title{
     font-size:36px;
-    
+
   }

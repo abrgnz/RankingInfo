@@ -6,3 +6,12 @@ $ ->
   $("#generic_images a.add_fields").
     data("association-insertion-method", 'append').
     data("association-insertion-node", '#image_fields');
+
+
+  $("#promotions a.add_fields").
+    data("association-insertion-method", 'append').
+    data("association-insertion-node", '#promotion_fields');
+
+  $("#notifications a.add_fields").
+    data("association-insertion-method", 'append').
+    data("association-insertion-node", '#notifications_fields');
