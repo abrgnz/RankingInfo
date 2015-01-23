@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119021600) do
+ActiveRecord::Schema.define(version: 20150123005835) do
 
   create_table "generic_images", force: true do |t|
     t.string   "name"
@@ -25,9 +25,18 @@ ActiveRecord::Schema.define(version: 20150119021600) do
     t.datetime "document_updated_at"
   end
 
+  create_table "notifications", force: true do |t|
+    t.date     "date"
+    t.text     "comment"
+    t.integer  "trial_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "promotions", force: true do |t|
     t.date     "date"
     t.text     "comment"
+    t.integer  "trial_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

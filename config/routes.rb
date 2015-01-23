@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :notifications
+
   get 'dashboards/index'
 
   resources :promotions
@@ -12,6 +14,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'dashboards#index'
+
+   match '/trials_all', to: 'trials#all',  via: 'get'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

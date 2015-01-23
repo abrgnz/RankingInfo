@@ -11,9 +11,9 @@
     <%= f.submit nil, :class => 'btn btn-primary' %>
   </div>
 </div>
-<div class="divider">
+<div class="divider"></div>
 
-</div>
+
 <div class="row">
   <div class="col-md-12">
     <% if @trial.errors.any? %>
@@ -190,6 +190,48 @@
   </div>
 </div>
 <div class="divider"></div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="col-md-12 text-center">
+      <h2>Promociones</h2>
+    </div>
+    <div id='promotions'>
+      <div id="promotion_fields">
+        <%= f.fields_for :promotions do |promotion| %>
+        <%= render 'promotion_fields', :f => promotion %>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <%= link_to_add_association 'Añadir Promoción', f , :promotions, class: 'btn btn-default'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="col-md-12 text-center">
+      <h2>Notificaciones</h2>
+    </div>
+    <div id='notifications'>
+      <div id="notification_fields">
+        <%= f.fields_for :notifications do |notification| %>
+        <%= render 'notification_fields', :f => notification %>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <%= link_to_add_association 'Añadir Notificación', f , :notifications, class: 'btn btn-default'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="divider">
+</div>
 <div class="row">
   <div class="col-md-12 text-center">
     <h2>Documentos</h2>

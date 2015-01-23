@@ -1,6 +1,6 @@
-class CreatePromotions < ActiveRecord::Migration
+class CreateNotifications < ActiveRecord::Migration
   def change
-    create_table :promotions do |t|
+    create_table :notifications do |t|
       t.date :date
       t.text :comment
       t.integer :trial_id

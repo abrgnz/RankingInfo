@@ -32,20 +32,20 @@
 <div class="row">  <!-- row -->
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>actor_nombre</label>
-      <%= @trial.actor_nombre%>
+      <label><%= model_class.human_attribute_name(:actor_nombre)%></label>
+      <p><%= @trial.actor_nombre%></p>
     </div>
   </div>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>actor_apellido_paterno</label>
-      <%= @trial.actor_apellido_paterno%>
+      <label><%= model_class.human_attribute_name(:actor_apellido_paterno)%></label>
+      <p><%= @trial.actor_apellido_paterno%></p>
     </div>
   </div>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>actor_apellido_materno</label>
-      <%= @trial.actor_apellido_materno%>
+      <label><%= model_class.human_attribute_name(:actor_apellido_materno)%></label>
+      <p><%= @trial.actor_apellido_materno%></p>
     </div>
   </div>
 </div>
@@ -59,20 +59,20 @@
 <div class='row'>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>demandado_nombre</label>
-      <%= @trial.demandado_nombre%>
+      <label><%= model_class.human_attribute_name(:demandado_nombre)%></label>
+      <p><%= @trial.demandado_nombre%></p>
     </div>
   </div>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>demandado_apellido_paterno</label>
-      <%= @trial.demandado_apellido_paterno%>
+      <label><%= model_class.human_attribute_name(:demandado_apellido_paterno)%></label>
+      <p><%= @trial.demandado_apellido_paterno%></p>
     </div>
   </div>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>demandado_apellido_materno</label>
-      <%= @trial.demandado_apellido_materno%>
+      <label><%= model_class.human_attribute_name(:demandado_apellido_materno)%></label>
+      <p><%= @trial.demandado_apellido_materno%></p>
     </div>
   </div>
 </div>
@@ -85,20 +85,20 @@
 <div class="row">
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>abogado_patrono_nombre</label>
-      <%= @trial.abogado_patrono_nombre%>
+      <label><%= model_class.human_attribute_name(:abogado_patrono_nombre)%></label>
+      <p><%= @trial.abogado_patrono_nombre%></p>
     </div>
   </div>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>abogado_patrono_apellido_paterno</label>
-      <%= @trial.abogado_patrono_apellido_paterno%>
+      <label><%= model_class.human_attribute_name(:abogado_patrono_apellido_paterno)%></label>
+      <p><%= @trial.abogado_patrono_apellido_paterno%></p>
     </div>
   </div>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>abogado_patrono_apellido_materno</label>
-      <%= @trial.abogado_patrono_apellido_materno%>
+      <label><%= model_class.human_attribute_name(:abogado_patrono_apellido_materno)%></label>
+      <p><%= @trial.abogado_patrono_apellido_materno%></p>
     </div>
   </div>
 </div>
@@ -111,55 +111,55 @@
 <div class="row">
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>tipo_juicio</label>
-      <%= @trial.tipo_juicio%>
+      <label><%= model_class.human_attribute_name(:tipo_juicio)%></label>
+      <p><%= @trial.tipo_juicio%></p>
     </div>
   </div>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>numero_expediente</label>
-      <%= @trial.numero_expediente%>
+      <label><%= model_class.human_attribute_name(:numero_expediente)%></label>
+      <p><%= @trial.numero_expediente%></p>
     </div>
   </div>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>juzgado</label>
-      <%= @trial.juzgado%>
-    </div>
-  </div>
-</div>
-<div class='row'>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label>distrito_judicial_string</label>
-      <%= @trial.distrito_judicial_string%>
-    </div>
-  </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label>ultima_actuacion</label>
-      <%= @trial.ultima_actuacion%>
-    </div>
-  </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label>estado_procesal</label>
-      <%= @trial.estado_procesal%>
+      <label><%= model_class.human_attribute_name(:juzgado)%></label>
+      <p><%= @trial.juzgado%></p>
     </div>
   </div>
 </div>
 <div class='row'>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>fecha_vencimiento_termino</label>
-      <%= @trial.fecha_vencimiento_termino%>
+      <label><%= model_class.human_attribute_name(:distrito_judicial_string)%></label>
+      <p><%= @trial.distrito_judicial_string%></p>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label><%= model_class.human_attribute_name(:ultima_actuacion)%></label>
+      <p><%= @trial.ultima_actuacion%></p>
+    </div>
+  </div>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label><%= model_class.human_attribute_name(:estado_procesal)%></label>
+      <p><%= @trial.estado_procesal%></p>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class="col-md-4 form-group">
+    <div class="margin-form">
+      <label><%= model_class.human_attribute_name(:fecha_vencimiento_termino)%></label>
+      <p><%= @trial.fecha_vencimiento_termino%></p>
     </div>
   </div>
   <div class="col-md-4 form-group"></div>
   <div class="col-md-4 form-group">
     <div class="margin-form">
-      <label>comentario</label>
-      <%= @trial.comentario%>
+      <label><%= model_class.human_attribute_name(:comentario)%></label>
+      <p><%= @trial.comentario%></p>
     </div>
   </div>
 </div>
@@ -169,10 +169,25 @@
     <h2>Documentos</h2>
   </div>
 </div>
+<% if @trial.generic_images.blank? %>
+  <p>No Existen Documentos</p>
+<% end %>
 <% for document in @trial.generic_images %>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <a href="<%= document.document.url %>"><%= document.description %></a>
+  <div class="row text-center">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="col-md-3 col-xs-3">
+        <p><%= document.description %></p>
+      </div>
+      <div class="col-md-3 col-xs-3">
+        <a href="<%= document.document.url %>">Descargar</a>
+      </div>
+      <div class="col-md-6 col-xs-6">
+        <p><%= document.updated_at.strftime("%d/%m/%Y") %></p>
+      </div>
     </div>
+    <div class="col-md-3"></div>
+
   </div>
 <% end %>
+<br><br><br>

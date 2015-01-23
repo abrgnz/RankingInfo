@@ -9,6 +9,10 @@ class TrialsController < ApplicationController
     @updatedTrials = Trial.updated_today
   end
 
+  def all
+    @trials = Trial.all
+  end
+
   # GET /trials/1
   # GET /trials/1.json
   def show
@@ -18,6 +22,9 @@ class TrialsController < ApplicationController
   def new
     @trial = Trial.new
     3.times{  @trial.generic_images.build }
+    1.times{  @trial.promotions.build }
+    1.times{  @trial.notifications.build }
+
   end
 
   # GET /trials/1/edit
@@ -89,7 +96,7 @@ class TrialsController < ApplicationController
                     :estado_procesal,
                      :fecha_vencimiento_termino,
                       :comentario,
-                      generic_images_attributes: [:id,:document, :description]
+                      generic_images_attributes: [:id, :document, :description]
                       )
     end
 end

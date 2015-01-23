@@ -4,7 +4,11 @@ class Trial < ActiveRecord::Base
 
   has_many :generic_images, foreign_key: :generic_id, dependent: :destroy
 
+  has_many :promotions, dependent: :destroy
+  accepts_nested_attributes_for :promotions
 
+  has_many :notifications, dependent: :destroy
+  accepts_nested_attributes_for :notifications
 
   accepts_nested_attributes_for :generic_images
 
