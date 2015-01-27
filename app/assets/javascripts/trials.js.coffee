@@ -14,4 +14,4 @@ $ ->
 
   $("#notifications a.add_fields").
     data("association-insertion-method", 'append').
-    data("association-insertion-node", '#notifications_fields');
+    data("association-insertion-node", '#notification_fields');
