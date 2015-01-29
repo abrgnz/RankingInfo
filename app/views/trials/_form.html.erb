@@ -1,13 +1,9 @@
 <div class="row">
-    <h1 class="page-header">Nuevo Juicio</h1>
-</div>
-
-<div class="row">
   <div class="col-md-12">
     <% if @trial.errors.any? %>
       <div id="error_expl" class="panel panel-danger">
         <div class="panel-heading">
-          <h3 class="panel-title"><%= pluralize(@trial.errors.count, "error") %> prohibited this trial from being saved:</h3>
+          <h3 class="panel-title">Existen Errores:</h3>
         </div>
         <div class="panel-body">
           <ul>
@@ -20,8 +16,8 @@
     <% end %>
   </div>
 </div>
+<%= form_for @trial, :html => { :class => "form-horizontal trial" } do |f| %>
 <div class="row">  <!-- row -->
-  <%= form_for @trial, :html => { :class => "form-horizontal trial" } do |f| %>
   <div class='col-md-12'>
     <h1>Actor</h1>
   </div>
@@ -45,6 +41,8 @@
     </div>
   </div>
   <div class='col-md-12'>
+    <div class='divider'></div>
+
     <h1>Demandado</h1>
   </div>
   <div class='col-lg-12'>
@@ -113,9 +111,9 @@
   <div class="col-lg-4">
     <div class="form-group">
       <div class="col-md-12">
-        <%= f.label :distrito_judicial_string, :class => 'control-label' %>
-        <%= f.text_field :distrito_judicial_string, :class => 'form-control' %>
-        <%= error_span(@trial[:distrito_judicial_string]) %>
+        <%= f.label :distrito_judicial, :class => 'control-label' %>
+        <%= f.text_field :distrito_judicial, :class => 'form-control' %>
+        <%= error_span(@trial[:distrito_judicial]) %>
       </div>
       <div class="col-md-12">
         <%= f.label :ultima_actuacion, :class => 'control-label' %>
@@ -132,9 +130,9 @@
   <div class='col-lg-4'>
     <div class="form-group">
       <div class="col-md-12">
-          <%= f.label :fecha_vencimiento_termino, :class => 'control-label' %>
-          <%= f.text_field :fecha_vencimiento_termino, :class => 'form-control' %>
-        <%= error_span(@trial[:fecha_vencimiento_termino]) %>
+          <%= f.label :fecha_vencimiento_termino, :class => 'control-label' %><br>
+          <%= f.date_select :fecha_vencimiento_termino, :value => Time.now.strftime('%Y-%m-%d') %>
+          <%= error_span(@trial[:fecha_vencimiento_termino]) %>
       </div>
       <div class="col-md-12">
         <%= f.label :comentario, :class => 'control-label' %>
@@ -144,7 +142,6 @@
     </div>
   </div>
 </div>
-
 <div class="row">
   <div class="col-lg-6">
     <div class='col-md-12'>
@@ -187,32 +184,32 @@
 
 
 
-<div class="divider">
-</div>
 <div class="row">
-  <div class="col-md-12 text-center">
+  <div class="col-md-12">
     <h1>Documentos</h1>
   </div>
-</div>
-<div id='generic_images'>
-  <div id="image_fields">
-    <%= f.fields_for :generic_images do |generic_images| %>
-    <%= render 'shared/generic_image_fields', :f => generic_images %>
-    <% end %>
-  </div>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <%= link_to_add_association 'Añadir Imagen', f, :generic_images,:partial => 'shared/generic_image_fields', class: 'btn btn-default'%>
+  <div class='col-md-12'>
+    <div id='generic_images'>
+      <div id="image_fields">
+        <%= f.fields_for :generic_images do |generic_images| %>
+          <%= render 'generic_image_fields', :f => generic_images %>
+        <% end %>
+      </div>
+      <div class="col-md-12 text-center">
+        <%= link_to_add_association 'Añadir Imagen', f, :generic_images,:partial => 'generic_image_fields', class: 'btn btn-default'%>
+      </div>
     </div>
   </div>
 </div>
+<div class="divider"></div>
 <div class='row'>
   <div class='col-md-4 col-xs-4 text-center'>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")), trials_path, :class => 'btn btn-default' %>
   </div>
-
+  <div class="col-md-4 col-xs-4"></div>
   <div class='col-md-4 col-xs-4 text-center'>
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit "Guardar", :class => 'btn btn-primary' %>
   </div>
 </div>
+<br>
 <% end %>

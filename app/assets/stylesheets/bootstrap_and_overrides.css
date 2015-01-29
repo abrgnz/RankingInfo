@@ -33,6 +33,7 @@
     width: 100%;
     padding: 0;
     background-color: #fff;
+    min-height: 750px;
   }
 
   .huge {
@@ -230,6 +231,26 @@
   .panel-yellow a:hover {
     color: #df8a13;
   }
+
+
+    .panel-blue {
+      border-color: #428bca;
+    }
+
+    .panel-blue .panel-heading {
+      border-color: #428bca;
+      color: #fff;
+      background-color: #428bca;
+    }
+
+    .panel-blue a {
+      color: #428bca;
+    }
+
+    .panel-blue a:hover {
+      color: #428bca;;
+    }
+
 
   .divider{
     height: 1px;

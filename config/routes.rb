@@ -14,8 +14,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'dashboards#index'
-
+   match '/trials_expire', to: 'trials#expire', via: 'get'
    match '/trials_all', to: 'trials#all',  via: 'get'
+   match '/trials_search', to: 'trials#search',  via: 'get'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

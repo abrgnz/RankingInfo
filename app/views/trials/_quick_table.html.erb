@@ -1,0 +1,34 @@
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:actor_nombre) %></th>
+      <th><%= model_class.human_attribute_name(:numero_expediente) %></th>
+      <th><%= model_class.human_attribute_name(:fecha_vencimiento_termino) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trials.each do |trial| %>
+    <tr>
+      <td><%= "#{trial.actor_nombre} #{trial.actor_apellido_paterno} #{trial.actor_apellido_paterno}" %></td>
+      <td><%= trial.numero_expediente %></td>
+      <td><%= localeChange(trial.fecha_vencimiento_termino) %></td>
+      <td>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+        edit_trial_path(trial), :class => 'btn btn-default btn-xs' %>
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+        trial_path(trial),
+        :method => :delete,
+        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => '¿Esta Seguro que Quiere Borrarlo?')) },
+        :class => 'btn btn-xs btn-danger' %>
+
+
+        <%= link_to t('.show', :default => t("helpers.links.show")),
+        trial_path(trial),
+        :class => 'btn btn-xs btn-info' %>
+
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

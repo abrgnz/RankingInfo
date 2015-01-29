@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20150123005835) do
     t.string   "tipo_juicio"
     t.string   "numero_expediente"
     t.string   "juzgado"
-    t.string   "distrito_judicial_string"
+    t.string   "distrito_judicial"
     t.string   "ultima_actuacion"
     t.string   "estado_procesal"
     t.date     "fecha_vencimiento_termino"

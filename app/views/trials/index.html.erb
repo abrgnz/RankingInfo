@@ -1,13 +1,17 @@
-
 <div class="row">
   <div class="col-md-12 col-lg-12">
-        <h1 class="page-header">Juicios</h1>
+    <div class='col-md-12'>
+      <h1 class="page-header">Juicios</h1>
+    </div>
   </div>
 </div>
 
 <div class='row'>
-  <div class="col-lg-4 col-md-6">
+  <div class="col-lg-3 col-md-6">
+
     <div class="panel panel-green">
+      <%= link_to new_trial_path do %>
+
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
@@ -15,22 +19,22 @@
           </div>
           <div class="col-xs-9 text-right">
             <div class="huge"><%= @createdTrials.count %></div>
-            <div>Juicios Creados el Día de Hoy</div>
+            <div>Creados el Día de Hoy</div>
           </div>
         </div>
       </div>
-      <a href="/trials/new">
         <div class="panel-footer">
           <span class="pull-left">Nuevo Juicio</span>
           <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
           <div class="clearfix"></div>
         </div>
-      </a>
+      <% end %>
     </div>
   </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="panel panel-blue">
+      <%= link_to '/trials_search' do %>
 
-  <div class="col-lg-4 col-md-6">
-    <div class="panel panel-primary">
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
@@ -38,39 +42,63 @@
           </div>
           <div class="col-xs-9 text-right">
             <div class="huge"><%= @trials.count %></div>
-            <div>Juicios en la base de datos</div>
+            <div>En la base de datos</div>
           </div>
         </div>
       </div>
-      <a href="#">
         <div class="panel-footer">
           <span class="pull-left">Buscar Juicio</span>
           <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
           <div class="clearfix"></div>
         </div>
-      </a>
+      <% end %>
     </div>
   </div>
-  <div class="col-lg-4 col-md-6">
-    <div class="panel panel-yellow">
+  <div class="col-lg-3 col-md-6">
+    <div class="panel panel-red">
+      <%= link_to '/trials_expire' do %>
+
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-pencil fa-5x"></i>
+            <i class="fa fa-clock-o fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
             <div class="huge"><%= @updatedTrials.count %></div>
-            <div>Juicios Editados el Día de Hoy</div>
+            <div>Proximos a Vencerse</div>
           </div>
         </div>
       </div>
-      <a href="#">
         <div class="panel-footer">
-          <span class="pull-left">Editar Juicio</span>
+          <span class="pull-left">Ver Juicios</span>
           <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
           <div class="clearfix"></div>
         </div>
-      </a>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6">
+    <div class="panel panel-yellow">
+      <%= link_to '/trials_expire' do %>
+
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-clock-o fa-5x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div class="huge"><%= @updatedTrials.count %></div>
+            <div>Asignados</div>
+          </div>
+        </div>
+      </div>
+        <div class="panel-footer">
+          <span class="pull-left">Ver Juicios</span>
+          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

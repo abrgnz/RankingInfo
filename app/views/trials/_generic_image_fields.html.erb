@@ -1,17 +1,13 @@
-<div class='row nested-fields'>
-
-
-
-  <div class="col-md-4 col-sm-2 col-xs-2 ">
+<div class='nested-fields col-md-12 form-group'>
+  <div class="col-md-2 col-sm-4 col-xs-2 ">
     <%= link_to_remove_association "x", f , class:'btn btn-default pull-right' %>
   </div>
-  <div class='col-md-3 col-sm-4 col-xs-4 text-center'>
+  <div class='col-md-4 col-sm-4 col-xs-10'>
     <%= f.text_field :description ,:class => 'form-control' , :placeholder => "Descripción"%>
+  </div>
+  <div class='col-md-6 col-sm-4 col-xs-12'>
     <br>
-  </div>
-
-  <div class='col-md-5 col-sm-6 col-xs-6'>
     <%= f.file_field :document%>
+    <br><br>
   </div>
-
 </div>

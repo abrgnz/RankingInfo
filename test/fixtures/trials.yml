@@ -1,23 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  actor_nombre: MyString
-  actor_apellido_paterno: MyString
-  actor_apellido_materno: MyString
-  abogado_patrono_nombre: MyString
-  abogado_patrono_apellido_paterno: MyString
-  abogado_patrono_apellido_materno: MyString
-  demandado_nombre: MyString
-  demandado_apellido_paterno: MyString
-  demandado_apellido_materno: MyString
-  tipo_juicio: MyString
-  numero_expediente: MyString
-  juzgado: MyString
-  distrito_judicial_string: MyString
-  ultima_actuacion: MyString
-  estado_procesal: MyString
+  actor_nombre: Carlos
+  actor_apellido_paterno: Peredo
+  actor_apellido_materno: Martinez
+  abogado_patrono_nombre: Jorge
+  abogado_patrono_apellido_paterno: Alberto
+  abogado_patrono_apellido_materno: Orodoñez
+  demandado_nombre: Juan Carlos
+  demandado_apellido_paterno: Mariano
+  demandado_apellido_materno: Holguera
+  tipo_juicio: Judicial
+  numero_expediente: 102/103
+  juzgado: Corporativo
+  distrito_judicial: Puebla
+  ultima_actuacion: 2014-12-04
+  estado_procesal: Aceptado
   fecha_vencimiento_termino: 2014-12-04
-  comentario: MyText
+  comentario: La vida es una forma muy extrá de tener increibles cosas
 
 two:
   actor_nombre: MyString
@@ -32,7 +32,7 @@ two:
   tipo_juicio: MyString
   numero_expediente: MyString
   juzgado: MyString
-  distrito_judicial_string: MyString
+  distrito_judicial: MyString
   ultima_actuacion: MyString
   estado_procesal: MyString
   fecha_vencimiento_termino: 2014-12-04

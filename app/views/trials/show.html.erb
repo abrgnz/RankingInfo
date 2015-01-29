@@ -1,193 +1,234 @@
 <%- model_class = Trial -%>
-<br><br>
 <div class="row">
-  <div class='col-md-4 col-xs-4 text-center'>
-    <%= link_to t('.back', :default => t("helpers.links.back")),
-    trials_path, :class => 'btn btn-default'  %>
-
-  </div>
-  <div class='col-md-4 col-xs-4 text-center'>
-    <p class="title">Viendo Juicio</p>
-  </div>
-
-  <div class='col-md-4 col-xs-4 text-center'>
-    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-    edit_trial_path(@trial), :class => 'btn btn-default' %>
-    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-    trial_path(@trial),
-    :method => 'delete',
-    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-    :class => 'btn btn-danger' %>
-
+  <div class='col-md-12 col-xs-12'>
+    <h1 class="page-header">Juicio <%= @trial.numero_expediente %></h1>
   </div>
 </div>
-<div class="divider">
 
-</div>
 <div class="row">
   <div class="col-md-12">
     <h2>Actor</h2>
   </div>
-</div>
-<div class="row">  <!-- row -->
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:actor_nombre)%></label>
-      <p><%= @trial.actor_nombre%></p>
+  <div class='col-lg-12'>
+    <div class="form-group">
+      <div class="col-md-4 col-lg-4">
+        <label><%= model_class.human_attribute_name(:actor_nombre)%></label>
+        <p><%= @trial.actor_nombre%></p>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <label><%= model_class.human_attribute_name(:actor_apellido_paterno)%></label>
+        <p><%= @trial.actor_apellido_paterno%></p>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <label><%= model_class.human_attribute_name(:actor_apellido_materno)%></label>
+        <p><%= @trial.actor_apellido_materno%></p>
+      </div>
     </div>
   </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:actor_apellido_paterno)%></label>
-      <p><%= @trial.actor_apellido_paterno%></p>
-    </div>
-  </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:actor_apellido_materno)%></label>
-      <p><%= @trial.actor_apellido_materno%></p>
-    </div>
-  </div>
-</div>
-
-<div class="divider"></div>
-<div class="row">
-  <div class="col-md-12">
+  <div class='col-md-12'>
     <h2>Demandado</h2>
   </div>
-</div>
-<div class='row'>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:demandado_nombre)%></label>
-      <p><%= @trial.demandado_nombre%></p>
+  <div class='col-lg-12'>
+    <div class="form-group">
+      <div class="col-md-4">
+        <label><%= model_class.human_attribute_name(:demandado_nombre)%></label>
+        <p><%= @trial.demandado_nombre%></p>
+      </div>
+      <div class="col-md-4">
+        <label><%= model_class.human_attribute_name(:demandado_apellido_paterno)%></label>
+        <p><%= @trial.demandado_apellido_paterno%></p>
+      </div>
+      <div class="col-md-4">
+        <label><%= model_class.human_attribute_name(:demandado_apellido_materno)%></label>
+        <p><%= @trial.demandado_apellido_materno%></p>
+      </div>
     </div>
   </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:demandado_apellido_paterno)%></label>
-      <p><%= @trial.demandado_apellido_paterno%></p>
-    </div>
-  </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:demandado_apellido_materno)%></label>
-      <p><%= @trial.demandado_apellido_materno%></p>
-    </div>
-  </div>
-</div>
-<div class='divider'></div>
-<div class="row">
-  <div class="col-md-12">
+  <div class='col-md-12'>
     <h2>Abogado Patrono</h2>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:abogado_patrono_nombre)%></label>
-      <p><%= @trial.abogado_patrono_nombre%></p>
-    </div>
-  </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:abogado_patrono_apellido_paterno)%></label>
-      <p><%= @trial.abogado_patrono_apellido_paterno%></p>
-    </div>
-  </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:abogado_patrono_apellido_materno)%></label>
-      <p><%= @trial.abogado_patrono_apellido_materno%></p>
-    </div>
-  </div>
-</div>
-<div class='divider'></div>
-<div class="row">
-  <div class="col-md-12">
-    <h2>Información del Juicio</h2>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:tipo_juicio)%></label>
-      <p><%= @trial.tipo_juicio%></p>
-    </div>
-  </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:numero_expediente)%></label>
-      <p><%= @trial.numero_expediente%></p>
-    </div>
-  </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:juzgado)%></label>
-      <p><%= @trial.juzgado%></p>
-    </div>
-  </div>
-</div>
-<div class='row'>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:distrito_judicial_string)%></label>
-      <p><%= @trial.distrito_judicial_string%></p>
-    </div>
-  </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:ultima_actuacion)%></label>
-      <p><%= @trial.ultima_actuacion%></p>
-    </div>
-  </div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:estado_procesal)%></label>
-      <p><%= @trial.estado_procesal%></p>
-    </div>
-  </div>
-</div>
-<div class='row'>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:fecha_vencimiento_termino)%></label>
-      <p><%= @trial.fecha_vencimiento_termino%></p>
-    </div>
-  </div>
-  <div class="col-md-4 form-group"></div>
-  <div class="col-md-4 form-group">
-    <div class="margin-form">
-      <label><%= model_class.human_attribute_name(:comentario)%></label>
-      <p><%= @trial.comentario%></p>
-    </div>
-  </div>
-</div>
-<div class="divider"></div>
-<div class="row">
-  <div class="col-md-12 text-center">
-    <h2>Documentos</h2>
-  </div>
-</div>
-<% if @trial.generic_images.blank? %>
-  <p>No Existen Documentos</p>
-<% end %>
-<% for document in @trial.generic_images %>
-  <div class="row text-center">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class="col-md-3 col-xs-3">
-        <p><%= document.description %></p>
+  <div class="col-lg-12">
+    <div class="form-group">
+      <div class="col-md-4">
+        <label><%= model_class.human_attribute_name(:abogado_patrono_nombre)%></label>
+        <p><%= @trial.abogado_patrono_nombre%></p>
       </div>
-      <div class="col-md-3 col-xs-3">
-        <a href="<%= document.document.url %>">Descargar</a>
+      <div class="col-md-4">
+        <label><%= model_class.human_attribute_name(:abogado_patrono_apellido_paterno)%></label>
+        <p><%= @trial.abogado_patrono_apellido_paterno%></p>
       </div>
-      <div class="col-md-6 col-xs-6">
-        <p><%= document.updated_at.strftime("%d/%m/%Y") %></p>
+      <div class="col-md-4">
+        <label><%= model_class.human_attribute_name(:abogado_patrono_apellido_materno)%></label>
+        <p><%= @trial.abogado_patrono_apellido_materno%></p>
       </div>
     </div>
-    <div class="col-md-3"></div>
+  </div>
+  <div class='col-md-12'>
+    <h2>Información General</h2>
+  </div>
 
+  <div class="col-lg-4 col-md-4">
+    <div class="form-group">
+      <div class="col-md-12">
+        <label><%= model_class.human_attribute_name(:tipo_juicio)%></label>
+        <p><%= @trial.tipo_juicio%></p>
+      </div>
+      <div class="col-md-12">
+        <label><%= model_class.human_attribute_name(:numero_expediente)%></label>
+          <p><%= @trial.numero_expediente%></p>
+      </div>
+      <div class="col-md-12">
+          <label><%= model_class.human_attribute_name(:juzgado)%></label>
+          <p><%= @trial.juzgado%></p>
+      </div>
+    </div>
   </div>
-<% end %>
-<br><br><br>
+  <div class="col-lg-4 col-md-4">
+    <div class="form-group">
+      <div class="col-md-12">
+        <label><%= model_class.human_attribute_name(:distrito_judicial)%></label>
+        <p><%= @trial.distrito_judicial%></p>
+      </div>
+      <div class="col-md-12">
+        <label><%= model_class.human_attribute_name(:ultima_actuacion)%></label>
+        <p><%= @trial.ultima_actuacion%></p>
+      </div>
+      <div class="col-md-12">
+        <label><%= model_class.human_attribute_name(:estado_procesal)%></label>
+        <p><%= @trial.estado_procesal%></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-4">
+    <div class="form-group">
+      <div class="col-md-12">
+        <label><%= model_class.human_attribute_name(:fecha_vencimiento_termino)%></label>
+        <p><%= localeChange(@trial.fecha_vencimiento_termino) %></p>
+      </div>
+      <div class="col-md-12">
+        <label><%= model_class.human_attribute_name(:comentario)%></label>
+        <p><%= @trial.comentario%></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-6">
+    <div class='col-md-12'>
+      <h2>Promociones</h2>
+    </div>
+    <div class='col-md-12'>
+      <% unless @trial.promotions.blank? %>
+      <table class="table table-condensed">
+        <thead>
+          <th>Descripción</th>
+          <th>Fecha</th>
+        </thead>
+          <% for promotion in @trial.promotions do %>
+            <tr>
+              <td>
+                <%= promotion.comment %>
+              </td>
+              <td>
+                <%= localeChange(promotion.date) %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+        <% else %>
+        <p>No Existen Promociones</p>
+        <% end %>      </div>
+    </div>
+
+  <div class="col-lg-4 col-md-6">
+    <div class='col-md-12'>
+      <h2>Notificaciones</h2>
+    </div>
+    <div class='col-md-12'>
+      <% unless @trial.notifications.blank? %>
+      <table class="table table-condensed">
+        <thead>
+          <th>Descripción</th>
+          <th>Fecha</th>
+        </thead>
+          <% for notification in @trial.notifications do %>
+            <tr>
+              <td>
+                <%= notification.comment %>
+              </td>
+              <td>
+                <%= localeChange(notification.date) %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      <% else %>
+      <p>No Existen Notificaciones</p>
+      <% end %>
+      </div>
+    </div>
+</div>
+<div class='row'>
+  <div class="col-lg-6 col-md-6">
+
+    <div class="col-md-12">
+      <h2>Documentos</h2>
+    </div>
+
+
+    <div class='col-md-12'>
+      <% if @trial.generic_images.blank? %>
+        <p>No Existen Documentos</p>
+      <% else %>
+      <table class="table table-condensed">
+        <thead>
+          <th>Descripción</th>
+          <th></th>
+          <th>Fecha</th>
+        </thead>
+        <% for document in @trial.generic_images %>
+        <tr>
+          <td>
+            <%= document.description %> wolis sup dup asñldkfj
+          </td>
+          <td>
+            <a href="<%= document.document.url %>" class="btn btn-default">Descargar
+            </a>
+          </td>
+          <td>
+            <%= document.updated_at.strftime("%d/%m/%Y") %></p>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-6">
+    <div class='col-md-12'>
+      <h2>Info Adicional</h2>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="divider"></div>
+<div class='row'>
+  <div class='col-md-4 col-xs-4 text-center'>
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+  trials_path, :class => 'btn btn-default'  %>
+</div>
+  <div class="col-md-4 col-xs-4"></div>
+  <div class='col-md-4 col-xs-4 text-center'>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+  edit_trial_path(@trial), :class => 'btn btn-default' %>
+  </div>
+</div>
+<br>

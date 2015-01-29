@@ -6,7 +6,15 @@ class TrialsController < ApplicationController
   def index
     @trials = Trial.all
     @createdTrials = Trial.created_today
-    @updatedTrials = Trial.updated_today
+    @updatedTrials = Trial.expire
+  end
+
+  def search
+    @trials = Trial.search(params[:search])
+  end
+
+  def expire
+    @trials = Trial.expire
   end
 
   def all
@@ -91,12 +99,15 @@ class TrialsController < ApplicationController
                :tipo_juicio,
                 :numero_expediente,
                  :juzgado,
-                  :distrito_judicial_string,
+                  :distrito_judicial,
                    :ultima_actuacion,
                     :estado_procesal,
                      :fecha_vencimiento_termino,
                       :comentario,
-                      generic_images_attributes: [:id, :document, :description]
+                      :search,
+                      generic_images_attributes: [:id, :generic_id, :document, :description,:_destroy],
+                      notifications_attributes: [:id, :date, :comment,:_destroy],
+                      promotions_attributes: [:id, :date, :comment, :_destroy]
                       )
     end
 end
