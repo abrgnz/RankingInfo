@@ -32,21 +32,21 @@ class TrialsController < ApplicationController
     3.times{  @trial.generic_images.build }
     1.times{  @trial.promotions.build }
     1.times{  @trial.notifications.build }
-
+    @parentTrial = Trial.find_by_id(params[:id]) unless params[:id].blank?
   end
 
   # GET /trials/1/edit
   def edit
+    @trials = @trial.sub_trials
   end
 
   # POST /trials
   # POST /trials.json
   def create
     @trial = Trial.new(trial_params)
-
     respond_to do |format|
       if @trial.save
-        format.html { redirect_to @trial, notice: 'Trial was successfully created.' }
+        format.html { redirect_to @trial, notice: 'Juicio Creado con Exito!' }
         format.json { render :show, status: :created, location: @trial }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class TrialsController < ApplicationController
   def update
     respond_to do |format|
       if @trial.update(trial_params)
-        format.html { redirect_to @trial, notice: 'Trial was successfully updated.' }
+        format.html { redirect_to @trial, notice: 'Juicio Actualizado con Exito.' }
         format.json { render :show, status: :ok, location: @trial }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class TrialsController < ApplicationController
   def destroy
     @trial.destroy
     respond_to do |format|
-      format.html { redirect_to trials_url, notice: 'Trial was successfully destroyed.' }
+      format.html { redirect_to trials_url, notice: 'Juicio Borrado con Exito.' }
       format.json { head :no_content }
     end
   end
@@ -105,6 +105,7 @@ class TrialsController < ApplicationController
                      :fecha_vencimiento_termino,
                       :comentario,
                       :search,
+                      :trial_id,
                       generic_images_attributes: [:id, :generic_id, :document, :description,:_destroy],
                       notifications_attributes: [:id, :date, :comment,:_destroy],
                       promotions_attributes: [:id, :date, :comment, :_destroy]

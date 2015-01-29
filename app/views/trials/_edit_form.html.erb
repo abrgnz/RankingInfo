@@ -1,11 +1,5 @@
 <%- model_class = Trial -%>
-
 <div class="row">
-  <div class='col-md-12'>
-    <% unless @parentTrial.blank? %>
-      <h3> Juicio Padre:<strong> <%= @parentTrial.numero_expediente %></strong></h3>
-    <% end %>
-  </div>
   <div class="col-md-12">
     <% if @trial.errors.any? %>
       <div id="error_expl" class="panel panel-danger">
@@ -26,10 +20,6 @@
 <%= form_for @trial, :html => { :class => "form-horizontal trial" } do |f| %>
 <div class="row">  <!-- row -->
   <div class='col-md-12'>
-  <% unless @parentTrial.blank? %>
-    <%= f.hidden_field :trial_id, value: @parentTrial.id %>
-  <% end %>
-    <h2>Actor</h2>
   </div>
   <div class='col-lg-12'>
     <div class="form-group">
@@ -151,6 +141,31 @@
         <%= text_area(:trial, :comentario, rows: 4, class:"form-control") %>
         <%= error_span(@trial[:comentario]) %>
       </div>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-lg-12'>
+    <div class='col-md-12'>
+      <h2>Juicios Relacionados</h2>
+    </div>
+    <% unless @trials.blank? %>
+
+    <div class='col-md-12'>
+      <%= render 'quick_table', model_class: model_class%>
+    </div>
+
+    <% else %>
+    <div class='col-md-12'>
+      <p><strong>No se encontraron Juicios</strong></p>
+    </div>
+    <% end %>
+    <div class="col-md-12">
+      <%= link_to 'Añadir Juicio', new_trial_path(id: @trial.id), :class => 'btn btn-default' %>
+    </div>
+
+    <div class='col-md-12'>
+
     </div>
   </div>
 </div>

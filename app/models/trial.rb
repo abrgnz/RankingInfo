@@ -5,13 +5,13 @@ class Trial < ActiveRecord::Base
   has_many :generic_images, foreign_key: :generic_id, dependent: :destroy
 
   has_many :promotions, dependent: :destroy
-  accepts_nested_attributes_for :promotions, reject_if: proc {|a| a[:comment].blank? }
+  accepts_nested_attributes_for :promotions, reject_if: proc {|a| a[:comment].blank? },allow_destroy: true
 
   has_many :notifications, dependent: :destroy
-  accepts_nested_attributes_for :notifications, reject_if: proc {|a| a[:comment].blank? }
+  accepts_nested_attributes_for :notifications, reject_if: proc {|a| a[:comment].blank? },allow_destroy: true
 
-  accepts_nested_attributes_for :generic_images, reject_if: proc { |a| a[:document].blank? || a[:description].blank? }
-  
+  accepts_nested_attributes_for :generic_images, reject_if: proc { |a| a[:document].blank? || a[:description].blank? },allow_destroy: true
+
   validates :actor_nombre, presence: true
   validates :actor_apellido_paterno, presence: true
   validates :actor_apellido_materno, presence: true
