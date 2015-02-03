@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :assignments
+
+  resources :users
+
   resources :notifications
 
   get 'dashboards/index'
@@ -17,6 +21,7 @@ Rails.application.routes.draw do
    match '/trials_expire', to: 'trials#expire', via: 'get'
    match '/trials_all', to: 'trials#all',  via: 'get'
    match '/trials_search', to: 'trials#search',  via: 'get'
+   match '/trials_calendar', to: 'trials#calendar',  via: 'get'
 
 
   # Example of regular route:

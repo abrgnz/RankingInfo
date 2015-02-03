@@ -15,4 +15,6 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require cocoon
+//= require moment
+//= require fullcalendar
 //= require_tree .

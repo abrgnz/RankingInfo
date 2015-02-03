@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123005835) do
+ActiveRecord::Schema.define(version: 20150130005122) do
+
+  create_table "assignments", force: true do |t|
+    t.integer  "trial_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "generic_images", force: true do |t|
     t.string   "name"
@@ -89,6 +96,15 @@ ActiveRecord::Schema.define(version: 20150123005835) do
     t.date     "fecha_vencimiento_termino"
     t.text     "comentario"
     t.integer  "trial_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "username"
+    t.string   "password"
+    t.string   "privileges"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

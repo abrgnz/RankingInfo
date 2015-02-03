@@ -15,3 +15,10 @@ $ ->
   $("#notifications a.add_fields").
     data("association-insertion-method", 'append').
     data("association-insertion-node", '#notification_fields');
+
+
+
+    $('#calendar').fullCalendar
+      eventSources: [{
+        url: '/trials_all',
+      }]

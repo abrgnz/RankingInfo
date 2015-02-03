@@ -2,7 +2,12 @@ class Trial < ActiveRecord::Base
   has_many :sub_trials, class_name: 'Trial', :foreign_key => :trial_id
   belongs_to :trial
 
+  has_many :users, through: :assignments
+  has_many :assignments
+  accepts_nested_attributes_for :users, allow_destroy: :destroy
+
   has_many :generic_images, foreign_key: :generic_id, dependent: :destroy
+  accepts_nested_attributes_for :generic_images, reject_if: proc { |a| a[:document].blank? || a[:description].blank? },allow_destroy: true
 
   has_many :promotions, dependent: :destroy
   accepts_nested_attributes_for :promotions, reject_if: proc {|a| a[:comment].blank? },allow_destroy: true
@@ -10,7 +15,6 @@ class Trial < ActiveRecord::Base
   has_many :notifications, dependent: :destroy
   accepts_nested_attributes_for :notifications, reject_if: proc {|a| a[:comment].blank? },allow_destroy: true
 
-  accepts_nested_attributes_for :generic_images, reject_if: proc { |a| a[:document].blank? || a[:description].blank? },allow_destroy: true
 
   validates :actor_nombre, presence: true
   validates :actor_apellido_paterno, presence: true
@@ -27,6 +31,14 @@ class Trial < ActiveRecord::Base
   validates :distrito_judicial, presence: true
   validates :juzgado, presence: true
   validates :fecha_vencimiento_termino, presence: true
+  def as_json(options = {})
+    {
+      :id => self.id,
+      :title => self.numero_expediente,
+      :start => fecha_vencimiento_termino,
+      :url => Rails.application.routes.url_helpers.trial_path(id)
+    }
+  end
 
   def self.created_today
     where('created_at >= ?', 1.day.ago)

@@ -19,11 +19,19 @@ class TrialsController < ApplicationController
 
   def all
     @trials = Trial.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @trials }
+    end
   end
 
   # GET /trials/1
   # GET /trials/1.json
   def show
+  end
+
+  def calendar
+
   end
 
   # GET /trials/new
