@@ -34,6 +34,7 @@ class TrialsController < ApplicationController
 
   def assigned_trials
     @trials = Trial.mine(session[:user_id],session[:user_privileges])
+    TrialAlert.where("user_id = ?", session[:user_id]).delete_all
   end
 
   def all
