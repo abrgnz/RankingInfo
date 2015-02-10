@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def self.non_admin(session)
-    where('privileges != ? AND id != ?', 1, session)
+    where('privileges != ? AND id != ?', "1", session)
   end
 
   def self.authenticate(username, password)
