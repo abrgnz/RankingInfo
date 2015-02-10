@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   resources :notifications
 
-  get 'dashboards/index'
-
   resources :promotions
 
   resources :trials
@@ -17,11 +15,21 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'dashboards#index'
+   root 'sessions#new'
    match '/trials_expire', to: 'trials#expire', via: 'get'
    match '/trials_all', to: 'trials#all',  via: 'get'
+   match '/trials_non_expire', to: 'trials#non_expire',  via: 'get'
    match '/trials_search', to: 'trials#search',  via: 'get'
    match '/trials_calendar', to: 'trials#calendar',  via: 'get'
+   match '/trials_assigned', to: 'trials#assigned_trials',  via: 'get'
+
+   match '/dashboard', to: 'dashboards#index', via:'get'
+
+   match '/users_all', to: 'users#all',  via: 'get'
+
+   get    'login'   => 'sessions#new'
+   post   'login'   => 'sessions#create'
+   delete 'logout'  => 'sessions#destroy'
 
 
   # Example of regular route:

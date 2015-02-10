@@ -2,6 +2,21 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
+
+
+  $('#calendar').fullCalendar
+    eventSources: [{
+      url: '/trials_expire',
+      color: 'red',
+      textColor: 'white',
+    },
+    {
+      url: '/trials_non_expire',
+      color: 'blue',
+      textColor: 'white',
+    }]
+
+
     #Coocon
   $("#generic_images a.add_fields").
     data("association-insertion-method", 'append').
@@ -18,7 +33,14 @@ $ ->
 
 
 
-    $('#calendar').fullCalendar
-      eventSources: [{
-        url: '/trials_all',
-      }]
+  $('#calendar').fullCalendar
+    eventSources: [{
+      url: '/trials_expire',
+      color: 'red',
+      textColor: 'white',
+    },
+    {
+      url: '/trials_non_expire',
+      color: 'blue',
+      textColor: 'white',
+    }]

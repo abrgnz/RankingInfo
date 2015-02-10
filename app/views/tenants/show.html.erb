@@ -1,124 +1,65 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Tenant -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @tenant.nombre %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:nombre) %>:</strong></dt>
+  <dd><%= @tenant.nombre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:apellido_paterno) %>:</strong></dt>
+  <dd><%= @tenant.apellido_paterno %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:apellido_materno) %>:</strong></dt>
+  <dd><%= @tenant.apellido_materno %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:domicilio) %>:</strong></dt>
+  <dd><%= @tenant.domicilio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:calle) %>:</strong></dt>
+  <dd><%= @tenant.calle %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:no_interior) %>:</strong></dt>
+  <dd><%= @tenant.no_interior %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:no_exterior) %>:</strong></dt>
+  <dd><%= @tenant.no_exterior %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:colonia) %>:</strong></dt>
+  <dd><%= @tenant.colonia %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ciudad) %>:</strong></dt>
+  <dd><%= @tenant.ciudad %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado) %>:</strong></dt>
+  <dd><%= @tenant.estado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:codigo_postal) %>:</strong></dt>
+  <dd><%= @tenant.codigo_postal %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:municipio) %>:</strong></dt>
+  <dd><%= @tenant.municipio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:delegacion) %>:</strong></dt>
+  <dd><%= @tenant.delegacion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefono_casa) %>:</strong></dt>
+  <dd><%= @tenant.telefono_casa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefono_movil) %>:</strong></dt>
+  <dd><%= @tenant.telefono_movil %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:curp) %>:</strong></dt>
+  <dd><%= @tenant.curp %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ife) %>:</strong></dt>
+  <dd><%= @tenant.ife %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_civil) %>:</strong></dt>
+  <dd><%= @tenant.estado_civil %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:arrendador_actual) %>:</strong></dt>
+  <dd><%= @tenant.arrendador_actual %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:arrendador_anterior) %>:</strong></dt>
+  <dd><%= @tenant.arrendador_anterior %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:domicilio_anterior) %>:</strong></dt>
+  <dd><%= @tenant.domicilio_anterior %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nombre_aval) %>:</strong></dt>
+  <dd><%= @tenant.nombre_aval %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:domicilio_aval) %>:</strong></dt>
+  <dd><%= @tenant.domicilio_aval %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefono_aval) %>:</strong></dt>
+  <dd><%= @tenant.telefono_aval %></dd>
+</dl>
 
-<p>
-  <strong>Apellido paterno:</strong>
-  <%= @tenant.apellido_paterno %>
-</p>
-
-<p>
-  <strong>Apellido materno:</strong>
-  <%= @tenant.apellido_materno %>
-</p>
-
-<p>
-  <strong>Domicilio:</strong>
-  <%= @tenant.domicilio %>
-</p>
-
-<p>
-  <strong>Calle:</strong>
-  <%= @tenant.calle %>
-</p>
-
-<p>
-  <strong>No interior:</strong>
-  <%= @tenant.no_interior %>
-</p>
-
-<p>
-  <strong>No exterior:</strong>
-  <%= @tenant.no_exterior %>
-</p>
-
-<p>
-  <strong>Colonia:</strong>
-  <%= @tenant.colonia %>
-</p>
-
-<p>
-  <strong>Ciudad:</strong>
-  <%= @tenant.ciudad %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @tenant.estado %>
-</p>
-
-<p>
-  <strong>Codigo postal:</strong>
-  <%= @tenant.codigo_postal %>
-</p>
-
-<p>
-  <strong>Municipio:</strong>
-  <%= @tenant.municipio %>
-</p>
-
-<p>
-  <strong>Delegacion:</strong>
-  <%= @tenant.delegacion %>
-</p>
-
-<p>
-  <strong>Telefono casa:</strong>
-  <%= @tenant.telefono_casa %>
-</p>
-
-<p>
-  <strong>Telefono movil:</strong>
-  <%= @tenant.telefono_movil %>
-</p>
-
-<p>
-  <strong>Curp:</strong>
-  <%= @tenant.curp %>
-</p>
-
-<p>
-  <strong>Ife:</strong>
-  <%= @tenant.ife %>
-</p>
-
-<p>
-  <strong>Estado civil:</strong>
-  <%= @tenant.estado_civil %>
-</p>
-
-<p>
-  <strong>Arrendador actual:</strong>
-  <%= @tenant.arrendador_actual %>
-</p>
-
-<p>
-  <strong>Arrendador anterior:</strong>
-  <%= @tenant.arrendador_anterior %>
-</p>
-
-<p>
-  <strong>Domicilio anterior:</strong>
-  <%= @tenant.domicilio_anterior %>
-</p>
-
-<p>
-  <strong>Nombre aval:</strong>
-  <%= @tenant.nombre_aval %>
-</p>
-
-<p>
-  <strong>Domicilio aval:</strong>
-  <%= @tenant.domicilio_aval %>
-</p>
-
-<p>
-  <strong>Telefono aval:</strong>
-  <%= @tenant.telefono_aval %>
-</p>
-
-<%= link_to 'Edit', edit_tenant_path(@tenant) %> |
-<%= link_to 'Back', tenants_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              tenants_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_tenant_path(@tenant), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              tenant_path(@tenant),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

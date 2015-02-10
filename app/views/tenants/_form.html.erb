@@ -1,113 +1,191 @@
-<%= form_for(@tenant) do |f| %>
-  <% if @tenant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tenant.errors.count, "error") %> prohibited this tenant from being saved:</h2>
+<%= form_for @tenant, :html => { :class => "form-horizontal tenant" } do |f| %>
 
-      <ul>
-      <% @tenant.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @tenant.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@tenant.errors.count, "error") %> prohibited this tenant from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @tenant.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
+  <div class="control-group">
+    <%= f.label :nombre, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nombre, :class => 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :apellido_paterno %><br>
-    <%= f.text_field :apellido_paterno %>
+  <div class="control-group">
+    <%= f.label :apellido_paterno, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :apellido_paterno, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:apellido_paterno]) %>
   </div>
-  <div class="field">
-    <%= f.label :apellido_materno %><br>
-    <%= f.text_field :apellido_materno %>
+  <div class="control-group">
+    <%= f.label :apellido_materno, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :apellido_materno, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:apellido_materno]) %>
   </div>
-  <div class="field">
-    <%= f.label :domicilio %><br>
-    <%= f.text_field :domicilio %>
+  <div class="control-group">
+    <%= f.label :domicilio, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :domicilio, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:domicilio]) %>
   </div>
-  <div class="field">
-    <%= f.label :calle %><br>
-    <%= f.text_field :calle %>
+  <div class="control-group">
+    <%= f.label :calle, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :calle, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:calle]) %>
   </div>
-  <div class="field">
-    <%= f.label :no_interior %><br>
-    <%= f.text_field :no_interior %>
+  <div class="control-group">
+    <%= f.label :no_interior, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :no_interior, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:no_interior]) %>
   </div>
-  <div class="field">
-    <%= f.label :no_exterior %><br>
-    <%= f.text_field :no_exterior %>
+  <div class="control-group">
+    <%= f.label :no_exterior, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :no_exterior, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:no_exterior]) %>
   </div>
-  <div class="field">
-    <%= f.label :colonia %><br>
-    <%= f.text_field :colonia %>
+  <div class="control-group">
+    <%= f.label :colonia, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :colonia, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:colonia]) %>
   </div>
-  <div class="field">
-    <%= f.label :ciudad %><br>
-    <%= f.text_field :ciudad %>
+  <div class="control-group">
+    <%= f.label :ciudad, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ciudad, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:ciudad]) %>
   </div>
-  <div class="field">
-    <%= f.label :estado %><br>
-    <%= f.text_field :estado %>
+  <div class="control-group">
+    <%= f.label :estado, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :estado, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:estado]) %>
   </div>
-  <div class="field">
-    <%= f.label :codigo_postal %><br>
-    <%= f.text_field :codigo_postal %>
+  <div class="control-group">
+    <%= f.label :codigo_postal, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :codigo_postal, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:codigo_postal]) %>
   </div>
-  <div class="field">
-    <%= f.label :municipio %><br>
-    <%= f.text_field :municipio %>
+  <div class="control-group">
+    <%= f.label :municipio, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :municipio, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:municipio]) %>
   </div>
-  <div class="field">
-    <%= f.label :delegacion %><br>
-    <%= f.text_field :delegacion %>
+  <div class="control-group">
+    <%= f.label :delegacion, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :delegacion, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:delegacion]) %>
   </div>
-  <div class="field">
-    <%= f.label :telefono_casa %><br>
-    <%= f.text_field :telefono_casa %>
+  <div class="control-group">
+    <%= f.label :telefono_casa, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :telefono_casa, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:telefono_casa]) %>
   </div>
-  <div class="field">
-    <%= f.label :telefono_movil %><br>
-    <%= f.text_field :telefono_movil %>
+  <div class="control-group">
+    <%= f.label :telefono_movil, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :telefono_movil, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:telefono_movil]) %>
   </div>
-  <div class="field">
-    <%= f.label :curp %><br>
-    <%= f.text_field :curp %>
+  <div class="control-group">
+    <%= f.label :curp, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :curp, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:curp]) %>
   </div>
-  <div class="field">
-    <%= f.label :ife %><br>
-    <%= f.text_field :ife %>
+  <div class="control-group">
+    <%= f.label :ife, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ife, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:ife]) %>
   </div>
-  <div class="field">
-    <%= f.label :estado_civil %><br>
-    <%= f.text_field :estado_civil %>
+  <div class="control-group">
+    <%= f.label :estado_civil, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :estado_civil, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:estado_civil]) %>
   </div>
-  <div class="field">
-    <%= f.label :arrendador_actual %><br>
-    <%= f.text_field :arrendador_actual %>
+  <div class="control-group">
+    <%= f.label :arrendador_actual, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :arrendador_actual, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:arrendador_actual]) %>
   </div>
-  <div class="field">
-    <%= f.label :arrendador_anterior %><br>
-    <%= f.text_field :arrendador_anterior %>
+  <div class="control-group">
+    <%= f.label :arrendador_anterior, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :arrendador_anterior, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:arrendador_anterior]) %>
   </div>
-  <div class="field">
-    <%= f.label :domicilio_anterior %><br>
-    <%= f.text_field :domicilio_anterior %>
+  <div class="control-group">
+    <%= f.label :domicilio_anterior, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :domicilio_anterior, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:domicilio_anterior]) %>
   </div>
-  <div class="field">
-    <%= f.label :nombre_aval %><br>
-    <%= f.text_field :nombre_aval %>
+  <div class="control-group">
+    <%= f.label :nombre_aval, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nombre_aval, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:nombre_aval]) %>
   </div>
-  <div class="field">
-    <%= f.label :domicilio_aval %><br>
-    <%= f.text_field :domicilio_aval %>
+  <div class="control-group">
+    <%= f.label :domicilio_aval, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :domicilio_aval, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:domicilio_aval]) %>
   </div>
-  <div class="field">
-    <%= f.label :telefono_aval %><br>
-    <%= f.text_field :telefono_aval %>
+  <div class="control-group">
+    <%= f.label :telefono_aval, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :telefono_aval, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tenant[:telefono_aval]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            tenants_path, :class => 'btn btn-default' %>
+
 <% end %>

@@ -4,9 +4,12 @@ class TrialsController < ApplicationController
   # GET /trials
   # GET /trials.json
   def index
-    @trials = Trial.all
-    @createdTrials = Trial.created_today
-    @updatedTrials = Trial.expire
+    @trials = Trial.all.count
+    @createdTrials = Trial.created_today.count
+    @updatedTrials = Trial.expire(session[:user_id],session[:user_privileges]).count
+
+    @myTrials = Trial.mine(session[:user_id],session[:user_privileges]).count
+
   end
 
   def search
@@ -14,7 +17,22 @@ class TrialsController < ApplicationController
   end
 
   def expire
-    @trials = Trial.expire
+    @trials = Trial.expire(session[:user_id],session[:user_privileges])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @trials }
+    end
+  end
+
+  def non_expire
+    @trials = Trial.non_expire(session[:user_id],session[:user_privileges])
+    respond_to do |format|
+      format.json { render :json => @trials }
+    end
+  end
+
+  def assigned_trials
+    @trials = Trial.mine(session[:user_id],session[:user_privileges])
   end
 
   def all
@@ -54,6 +72,7 @@ class TrialsController < ApplicationController
     @trial = Trial.new(trial_params)
     respond_to do |format|
       if @trial.save
+        Assignment.create(trial_id: @trial.id, user_id:session[:user_id])
         format.html { redirect_to @trial, notice: 'Juicio Creado con Exito!' }
         format.json { render :show, status: :created, location: @trial }
       else
@@ -93,6 +112,8 @@ class TrialsController < ApplicationController
       @trial = Trial.find(params[:id])
     end
 
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def trial_params
       params.require(:trial).permit(:actor_nombre,
@@ -113,6 +134,7 @@ class TrialsController < ApplicationController
                      :fecha_vencimiento_termino,
                       :comentario,
                       :search,
+                      { :user_ids => [] },
                       :trial_id,
                       generic_images_attributes: [:id, :generic_id, :document, :description,:_destroy],
                       notifications_attributes: [:id, :date, :comment,:_destroy],

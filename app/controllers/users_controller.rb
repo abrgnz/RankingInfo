@@ -4,12 +4,18 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @createdUsers = User.created_today.count
+    @users = User.all.count
+
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+  end
+
+  def all
+    @users = User.all
   end
 
   # GET /users/new

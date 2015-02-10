@@ -32,8 +32,13 @@ gem "paperclip", "~> 4.2"
 # Boostrap Rails
 gem "twitter-bootstrap-rails"
 
+gem "less-rails"
+gem "therubyracer"
+
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 
 gem 'momentjs-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

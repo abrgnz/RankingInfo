@@ -4,7 +4,6 @@ class Trial < ActiveRecord::Base
 
   has_many :users, through: :assignments
   has_many :assignments
-  accepts_nested_attributes_for :users, allow_destroy: :destroy
 
   has_many :generic_images, foreign_key: :generic_id, dependent: :destroy
   accepts_nested_attributes_for :generic_images, reject_if: proc { |a| a[:document].blank? || a[:description].blank? },allow_destroy: true
@@ -43,8 +42,17 @@ class Trial < ActiveRecord::Base
   def self.created_today
     where('created_at >= ?', 1.day.ago)
   end
-  def self.expire
-    where('fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?', Date.today, Date.today+15)
+
+  def self.mine(session,privileges)
+    privileges.to_i == 1? Trial.all : joins(:assignments).where('assignments.user_id = ?', session)
+  end
+  def self.expire (session,privileges)
+    privileges.to_i > 1? joins(:assignments).where('assignments.user_id = ? AND fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?',session, Date.today, Date.today+15) : where('fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?', Date.today, Date.today+15)
+  end
+
+  def self.non_expire(session,privileges)
+    privileges.to_i > 1? joins(:assignments).where.not('assignments.user_id = ? AND fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?',session, Date.today, Date.today+15) : where.not('fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?', Date.today, Date.today+15)
+
   end
 
 
