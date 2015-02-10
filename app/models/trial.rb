@@ -47,15 +47,15 @@ class Trial < ActiveRecord::Base
   end
 
   def self.mine(session,privileges)
-    privileges.to_i == "1"? Trial.all : joins(:assignments).where('assignments.user_id = ?', session)
+    privileges == "1"? Trial.all : joins(:assignments).where('assignments.user_id = ?', session)
   end
 
   def self.expire (session,privileges)
-    privileges.to_i > "1"? joins(:assignments).where('assignments.user_id = ? AND fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?',session, Date.today, Date.today+15) : where('fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?', Date.today, Date.today+15)
+    privileges > "1"? joins(:assignments).where('assignments.user_id = ? AND fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?',session, Date.today, Date.today+15) : where('fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?', Date.today, Date.today+15)
   end
 
   def self.non_expire(session,privileges)
-    privileges.to_i > "1"? joins(:assignments).where.not('assignments.user_id = ? AND fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?',session, Date.today, Date.today+15) : where.not('fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?', Date.today, Date.today+15)
+    privileges > "1"? joins(:assignments).where.not('assignments.user_id = ? AND fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?',session, Date.today, Date.today+15) : where.not('fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?', Date.today, Date.today+15)
 
   end
 
