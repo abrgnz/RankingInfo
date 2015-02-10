@@ -19,7 +19,8 @@ module SessionsHelper
    @current_user = nil
   end
 
-  def notif
-    TrialAlert.notifications(session[:user_id])
+
+  def countAssignedTrials
+    Trial.mine(session[:user_id],session[:privileges]).count
   end
 end

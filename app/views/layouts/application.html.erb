@@ -34,16 +34,14 @@
           <li class="dropdown">
 
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell <% unless notif.blank? %>active<% end %>"></i> <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu alert-dropdown">
-              <% if notif.length > 0 %>
-                <li>
-                  <%= link_to "Juicios Asignados", trials_assigned_path %>
-                </li>
-              <% end %>
+
               <li class="divider"></li>
               <li>
-                <a href="#">View All</a>
+                <%= link_to trials_assigned_path do %>
+                <%= countAssignedTrials %> Juicios Asignados
+                <% end %>
               </li>
             </ul>
           </li>

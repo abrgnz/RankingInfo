@@ -75,13 +75,6 @@ class TrialsController < ApplicationController
   def create
     @trial = Trial.new(trial_params)
     if @trial.save
-      TrialAlert.create(trial_id:@trial.id,user_id:session[:user_id],description:"Juicio Asignado") unless session[:user_privileges].to_s == 1
-
-      unless params[:trial][:user_ids].blank?
-        params[:trial][:user_ids].each do |user_id|
-            TrialAlert.create(trial_id:@trial.id,user_id:user_id,description:"Juicio Asignado") unless user_id.blank?
-        end
-      end
         Assignment.create(trial_id: @trial.id, user_id:session[:user_id]) unless session[:user_privileges].to_i == 1
         redirect_to @trial
         flash[:success] = 'Creado con Exito!'
