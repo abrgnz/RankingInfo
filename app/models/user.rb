@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   has_many :assignments
   has_many :trials, through: :assigments
 
+  has_many :trial_alerts
+
+  has_many :task_alerts
+  has_many :tasks, through: :task_alerts
+
 
   validates :username, presence: true
   validates :name, presence: true

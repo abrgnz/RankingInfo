@@ -18,4 +18,8 @@ module SessionsHelper
    session.delete(:user_id)
    @current_user = nil
   end
+
+  def notif
+    TrialAlert.notifications(session[:user_id])
+  end
 end

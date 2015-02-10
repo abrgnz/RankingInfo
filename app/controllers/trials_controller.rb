@@ -1,5 +1,6 @@
 class TrialsController < ApplicationController
   before_action :set_trial, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
 
   # GET /trials
   # GET /trials.json
@@ -46,6 +47,8 @@ class TrialsController < ApplicationController
   # GET /trials/1
   # GET /trials/1.json
   def show
+    @parentTrial = Trial.find(@trial.trial_id) unless @trial.trial_id.blank?
+
   end
 
   def calendar
@@ -70,15 +73,19 @@ class TrialsController < ApplicationController
   # POST /trials.json
   def create
     @trial = Trial.new(trial_params)
-    respond_to do |format|
-      if @trial.save
-        Assignment.create(trial_id: @trial.id, user_id:session[:user_id])
-        format.html { redirect_to @trial, notice: 'Juicio Creado con Exito!' }
-        format.json { render :show, status: :created, location: @trial }
-      else
-        format.html { render :new }
-        format.json { render json: @trial.errors, status: :unprocessable_entity }
+    if @trial.save
+      TrialAlert.create(trial_id:@trial.id,user_id:session[:user_id],description:"Juicio Asignado") unless session[:user_privileges].to_s == 1
+
+      unless params[:trial][:user_ids].blank?
+        params[:trial][:user_ids].each do |user_id|
+            TrialAlert.create(trial_id:@trial.id,user_id:user_id,description:"Juicio Asignado") unless user_id.blank?
+        end
       end
+        Assignment.create(trial_id: @trial.id, user_id:session[:user_id]) unless session[:user_privileges].to_i == 1
+        redirect_to @trial
+        flash[:success] = 'Creado con Exito!'
+    else
+      render :new
     end
   end
 

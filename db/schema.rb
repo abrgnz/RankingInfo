@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210003825) do
+ActiveRecord::Schema.define(version: 20150210173809) do
 
   create_table "assignments", force: true do |t|
     t.integer  "trial_id"
@@ -48,6 +48,21 @@ ActiveRecord::Schema.define(version: 20150210003825) do
     t.datetime "updated_at"
   end
 
+  create_table "task_alerts", force: true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tenants", force: true do |t|
     t.string   "nombre"
     t.string   "apellido_paterno"
@@ -73,6 +88,14 @@ ActiveRecord::Schema.define(version: 20150210003825) do
     t.string   "nombre_aval"
     t.string   "domicilio_aval"
     t.string   "telefono_aval"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trial_alerts", force: true do |t|
+    t.integer  "trial_id"
+    t.integer  "user_id"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

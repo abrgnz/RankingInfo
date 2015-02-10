@@ -13,7 +13,9 @@
   */
 
   /* Global Styles */
-
+  .active{
+    color: yellow;
+  }
   body {
     margin-top: 100px;
     background-color: #222;

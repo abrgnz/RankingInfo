@@ -1,10 +1,10 @@
 <%- model_class = Trial -%>
 <div class="row">
-  <div class='col-md-12'>
-    <% unless @parentTrial.blank? %>
-      <h3> Juicio Padre:<strong> <%= @parentTrial.numero_expediente %></strong></h3>
-    <% end %>
-  </div>
+  <% unless @parentTrial.blank? %>
+    <div class='col-md-12'>
+        <h3> Juicio Padre:<strong> <%=link_to @parentTrial.numero_expediente, @parentTrial %></strong></h3>
+    </div>
+  <% end %>
   <div class="col-md-12">
     <% if @trial.errors.any? %>
       <div id="error_expl" class="panel panel-danger">
@@ -23,16 +23,18 @@
   </div>
 </div>
 <%= form_for @trial, :html => { :class => "form-horizontal trial" } do |f| %>
-<div class='row'>
-  <div class='col-md-12'>
-    <h2>Asignar a:</h2>
-  </div>
-  <%=  f.collection_check_boxes :user_ids, User.non_admin(session[:user_id]), :id, :name do |b| %>
-    <div class='col-md-4 col-sm-6 col-xs-12 text-center'>
-      <%= b.label { b.check_box + b.text } %>
+<% if @parentTrial.blank? %>
+  <div class='row'>
+    <div class='col-md-12'>
+      <h2>Asignar a:</h2>
     </div>
-  <% end %>
-</div>
+    <%=  f.collection_check_boxes :user_ids, User.non_admin(session[:user_id]), :id, :name do |b| %>
+      <div class='col-md-4 col-sm-6 col-xs-12 text-center'>
+        <%= b.label { b.check_box + b.text } %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 <div class="row">  <!-- row -->
   <div class='col-md-12'>
   <% unless @parentTrial.blank? %>

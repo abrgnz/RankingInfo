@@ -1,4 +1,7 @@
 class Trial < ActiveRecord::Base
+
+  has_many :trial_alerts
+  
   has_many :sub_trials, class_name: 'Trial', :foreign_key => :trial_id
   belongs_to :trial
 
@@ -46,6 +49,7 @@ class Trial < ActiveRecord::Base
   def self.mine(session,privileges)
     privileges.to_i == 1? Trial.all : joins(:assignments).where('assignments.user_id = ?', session)
   end
+
   def self.expire (session,privileges)
     privileges.to_i > 1? joins(:assignments).where('assignments.user_id = ? AND fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?',session, Date.today, Date.today+15) : where('fecha_vencimiento_termino >= ? AND fecha_vencimiento_termino <= ?', Date.today, Date.today+15)
   end
