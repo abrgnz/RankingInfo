@@ -6,12 +6,11 @@ class Task < ActiveRecord::Base
   end
 
   def self.task_not_done(session,privileges)
-    privileges == "1"? where('done == "f"') : where('user_id = ? AND done == "f"',session)
+    privileges == "1"? where("done == 'f'") : where("user_id = ? AND done == 'f'",session)
   end
 
   def self.task_done(session,privileges)
-    privileges == "1"? where('done == "t"') : where('user_id = ? AND done == "t"',session)
-
+    privileges == "1"? where("done == 't'") : where("user_id = ? AND done == 't'",session)
   end
 
 
