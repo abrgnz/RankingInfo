@@ -1,191 +1,177 @@
-<%= form_for @tenant, :html => { :class => "form-horizontal tenant" } do |f| %>
-
+<%- model_class = Tenant -%>
+<div class="row">
+  <div class="col-md-12">
     <% if @tenant.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@tenant.errors.count, "error") %> prohibited this tenant from being saved:</h3>
+      <div id="error_expl" class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">Existen Errores:</h3>
+        </div>
+        <div class="panel-body">
+          <ul>
+          <% @tenant.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       </div>
-      <div class="panel-body">
-        <ul>
-        <% @tenant.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
+    <% end %>
+  </div>
+</div>
+
+<%= form_for @tenant, :html => { :class => "form-horizontal tenant" } do |f| %>
+<div class='row'>
+  <div class='col-md-12'>
+    <h2>Nombre del Arrendado</h2>
+  </div>
+  <div class='col-lg-12'>
+    <div class="form-group">
+      <div class="col-md-4 col-lg-4">
+        <%= f.label :nombre, :class => 'control-label' %>
+        <%= f.text_field :nombre, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <%= f.label :apellido_paterno, :class => 'control-label' %>
+        <%= f.text_field :apellido_paterno, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <%= f.label :apellido_materno, :class => 'control-label' %>
+        <%= f.text_field :apellido_materno, :class => 'form-control' %>
       </div>
     </div>
-  <% end %>
-
-  <div class="control-group">
-    <%= f.label :nombre, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :nombre, :class => 'form-control' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :apellido_paterno, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :apellido_paterno, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:apellido_paterno]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :apellido_materno, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :apellido_materno, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:apellido_materno]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :domicilio, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :domicilio, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:domicilio]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :calle, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :calle, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:calle]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :no_interior, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :no_interior, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:no_interior]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :no_exterior, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :no_exterior, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:no_exterior]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :colonia, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :colonia, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:colonia]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :ciudad, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ciudad, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:ciudad]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :estado, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :estado, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:estado]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :codigo_postal, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :codigo_postal, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:codigo_postal]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :municipio, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :municipio, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:municipio]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :delegacion, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :delegacion, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:delegacion]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :telefono_casa, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :telefono_casa, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:telefono_casa]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :telefono_movil, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :telefono_movil, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:telefono_movil]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :curp, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :curp, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:curp]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :ife, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ife, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:ife]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :estado_civil, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :estado_civil, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:estado_civil]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :arrendador_actual, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :arrendador_actual, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:arrendador_actual]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :arrendador_anterior, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :arrendador_anterior, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:arrendador_anterior]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :domicilio_anterior, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :domicilio_anterior, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:domicilio_anterior]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :nombre_aval, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :nombre_aval, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:nombre_aval]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :domicilio_aval, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :domicilio_aval, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:domicilio_aval]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :telefono_aval, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :telefono_aval, :class => 'form-control' %>
-    </div>
-    <%= error_span(@tenant[:telefono_aval]) %>
   </div>
 
+  <div class='col-md-12'>
+    <div class='divider'></div>
 
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            tenants_path, :class => 'btn btn-default' %>
+    <h2>Dirección del Arrendado</h2>
+  </div>
+  <div class='col-lg-12'>
+    <div class="form-group">
+      <div class="col-md-4">
+        <%= f.label :domicilio, :class => 'control-label' %>
+        <%= f.text_field :domicilio, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :calle, :class => 'control-label' %>
+        <%= f.text_field :calle, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :no_interior, :class => 'control-label' %>
+        <%= f.text_field :no_interior, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :no_exterior, :class => 'control-label' %>
+        <%= f.text_field :no_exterior, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :colonia, :class => 'control-label' %>
+        <%= f.text_field :colonia, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :ciudad, :class => 'control-label' %>
+        <%= f.text_field :ciudad, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :estado, :class => 'control-label' %>
+        <%= f.text_field :estado, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :codigo_postal, :class => 'control-label' %>
+        <%= f.text_field :codigo_postal, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :municipio, :class => 'control-label' %>
+        <%= f.text_field :municipio, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :delegacion, :class => 'control-label' %>
+        <%= f.text_field :delegacion, :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class='col-md-12'>
+    <div class='divider'></div>
+    <h2>Información del Arrendado</h2>
+  </div>
+  <div class="col-lg-12">
+    <div class="form-group">
+      <div class="col-md-4">
+        <%= f.label :telefono_casa, :class => 'control-label' %>
+        <%= f.text_field :telefono_casa, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :telefono_movil, :class => 'control-label' %>
+        <%= f.text_field :telefono_movil, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :curp, :class => 'control-label' %>
+        <%= f.text_field :curp, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :ife, :class => 'control-label' %>
+        <%= f.text_field :ife, :class => 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= f.label :estado_civil, :class => 'control-label' %>
+        <%= f.text_field :estado_civil, :class => 'form-control' %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label :domicilio_anterior, :class => 'control-label' %>
+        <%= f.text_field :domicilio_anterior, :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class='col-md-12'>
+    <div class='divider'></div>
+    <h2>Información de Arrendador</h2>
+  </div>
+  <div class="col-lg-12">
+    <div class="form-group">
+      <div class="col-md-6">
+        <%= f.label :arrendador_actual, :class => 'control-label' %>
+        <%= f.text_field :arrendador_actual, :class => 'form-control' %>
+      </div>
+      <div class="col-md-6">
+          <%= f.label :arrendador_anterior, :class => 'control-label' %>
+          <%= f.text_field :arrendador_anterior, :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class='col-md-12'>
+    <div class='divider'></div>
+    <h2>Información del Aval</h2>
+  </div>
+  <div class="col-lg-12">
+    <div class="form-group">
+      <div class="col-md-6">
+        <%= f.label :nombre_aval, :class => 'control-label' %>
+        <%= f.text_field :nombre_aval, :class => 'form-control' %>
+      </div>
 
+      <div class="col-md-6">
+        <%= f.label :telefono_aval, :class => 'control-label' %>
+        <%= f.text_field :telefono_aval, :class => 'form-control' %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label :domicilio_aval, :class => 'control-label' %>
+        <%= f.text_field :domicilio_aval, :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="divider"></div>
+<div class='row'>
+  <div class='col-md-4 col-xs-4 text-center'>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), trials_path, :class => 'btn btn-default' %>
+  </div>
+  <div class="col-md-4 col-xs-4"></div>
+  <div class='col-md-4 col-xs-4 text-center'>
+    <%= f.submit "Guardar", :class => 'btn btn-primary' %>
+  </div>
+</div>
+<br>
 <% end %>

@@ -33,6 +33,7 @@ class Trial < ActiveRecord::Base
   validates :distrito_judicial, presence: true
   validates :juzgado, presence: true
   validates :fecha_vencimiento_termino, presence: true
+
   def as_json(options = {})
     {
       :id => self.id,

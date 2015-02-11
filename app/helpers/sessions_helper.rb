@@ -19,8 +19,15 @@ module SessionsHelper
    @current_user = nil
   end
 
+  def is_admin?
+    session[:user_privileges] == "1"
+  end
 
   def countAssignedTrials
     Trial.mine(session[:user_id],session[:privileges]).count
+  end
+
+  def countAssignedTasks
+    Task.task_not_done(session[:user_id],session[:privileges]).count
   end
 end

@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12">
+    <div class='col-md-12'>
+      <h1 class="page-header">Tareas</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class='col-md-6'>
+    <div class='col-md-12'>
+      <h2>Pendientes</h2>
+    </div>
+  <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Accion</th>
+
+          <th>Titulo</th>
+          <th>Descripción</th>
+          <th>
+            Responsable
+          </th>
+        </tr>
+      </thead>
+      <% @unfinishedTasks.each do |task| %>
+      <tr>
+        <td>
+          <%= link_to complete_task_path(task) do %><i class="fa fa-check"></i> <% end %>
+        </td>
+        <td>
+          <%= task.title %>
+        </td>
+        <td>
+          <%= task.description %>
+        </td>
+
+        <td>
+          <%= task.user.name %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  </div>
+
+<div class='col-md-6'>
+  <div class='col-md-12'>
+    <h2>Terminadas</h2>
+  </div>
+<table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Accion</th>
+        <th>Titulo</th>
+        <th>Descripción</th>
+        <th>
+          Responsable
+        </th>
+      </tr>
+    </thead>
+    <% @finishedTasks.each do |task| %>
+    <tr>
+      <td>
+        <%= link_to uncomplete_task_path(task) do %><i class="fa fa-times"></i> <% end %>
+      </td>
+      <td>
+        <%= task.title %>
+      </td>
+      <td>
+        <%= task.description %>
+      </td>
+      <td>
+        <%= task.user.name %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</div>

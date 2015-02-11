@@ -34,13 +34,25 @@
           <li class="dropdown">
 
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell <% if countAssignedTasks >0 %>active <% end %>"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu alert-dropdown">
-
+              <li>
+                <%= link_to tasks_assigned_path do %>
+                  <% if session[:user_privileges] != "1" %>
+                  <%= countAssignedTasks %> Tareas Asignadas
+                  <% else %>
+                    Ver Tareas
+                  <% end %>
+                <% end %>
+              </li>
               <li class="divider"></li>
               <li>
                 <%= link_to trials_assigned_path do %>
-                <%= countAssignedTrials %> Juicios Asignados
+                  <% if session[:user_privileges] != "1" %>
+                  <%= countAssignedTrials %> Juicios Asignados
+                  <% else %>
+                    Ver Juicios
+                  <% end %>
                 <% end %>
               </li>
             </ul>
@@ -48,16 +60,8 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= session[:user_name] %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li>
-                <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-              </li>
-              <li class="divider"></li>
+
+
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>
               </li>
@@ -68,17 +72,21 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
             <li>
-              <a href="/"><i class="fa fa-fw fa-dashboard"></i> Panel de Control</a>
+              <%= link_to dashboard_path do%><i class="fa fa-fw fa-dashboard"></i> Panel de Control <% end %>
             </li>
             <li>
-              <a href="/trials"><i class="fa fa-fw fa-briefcase"></i> Juicios</a>
+              <%= link_to trials_path do%><i class="fa fa-fw fa-briefcase"></i> Juicios <% end %>
             </li>
             <li>
-              <a href="/tenants"><i class="fa fa-fw fa-home"></i> Arrendados</a>
+              <%= link_to tenants_path do%><i class="fa fa-fw fa-home"></i> Arrendados <% end %>
             </li>
 
             <li>
-              <a href="/users"><i class="fa fa-fw fa-users"></i> Usuarios</a>
+              <%= link_to users_path do%><i class="fa fa-fw fa-users"></i> Usuarios <% end %>
+            </li>
+
+            <li>
+              <%= link_to tasks_path do%><i class="fa fa-fw fa-check-square-o"></i> Tareas <% end %>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->

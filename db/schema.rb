@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210173809) do
+ActiveRecord::Schema.define(version: 20150211172553) do
 
   create_table "assignments", force: true do |t|
     t.integer  "trial_id"
@@ -57,8 +57,10 @@ ActiveRecord::Schema.define(version: 20150210173809) do
   end
 
   create_table "tasks", force: true do |t|
-    t.string   "title"
+    t.integer  "user_id"
     t.text     "description"
+    t.string   "title"
+    t.boolean  "done"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,14 +90,6 @@ ActiveRecord::Schema.define(version: 20150210173809) do
     t.string   "nombre_aval"
     t.string   "domicilio_aval"
     t.string   "telefono_aval"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "trial_alerts", force: true do |t|
-    t.integer  "trial_id"
-    t.integer  "user_id"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

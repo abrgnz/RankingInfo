@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tasks
+
   resources :assignments
 
   resources :users
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
    match '/trials_search', to: 'trials#search',  via: 'get'
    match '/trials_calendar', to: 'trials#calendar',  via: 'get'
    match '/trials_assigned', to: 'trials#assigned_trials',  via: 'get'
+   match '/tasks_assigned', to: 'tasks#assigned_tasks',  via: 'get'
 
    match '/dashboard', to: 'dashboards#index', via:'get'
 
@@ -33,7 +36,13 @@ Rails.application.routes.draw do
    get    'login'   => 'sessions#new'
    post   'login'   => 'sessions#create'
    delete 'logout'  => 'sessions#destroy'
-   delete '/trials_alert/:id', to: 'trial_alerts#destroy', as: 'trial_alert_delete'
+   get '/task_complete/:id', to: 'tasks#task_done', as: 'complete_task'
+
+   get '/task_not_complete/:id', to: 'tasks#task_not_done', as: 'uncomplete_task'
+
+
+   match '/tenants_search', to: 'tenants#search',  via: 'get'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

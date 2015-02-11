@@ -1,56 +1,58 @@
 <div class="row">
   <div class="col-md-12 col-lg-12">
     <div class='col-md-12'>
-      <h1 class="page-header">Usuarios</h1>
+      <h1 class="page-header">Tareas</h1>
     </div>
   </div>
 </div>
+
 <div class='row'>
   <div class="col-lg-3 col-md-6">
+
     <div class="panel panel-green">
-      <%= link_to new_user_path do %>
+      <%= link_to new_task_path do %>
+
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-user fa-5x"></i>
+            <i class="fa fa-check-square-o fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <div class="huge"><%= @createdUsers %></div>
-            <div>Creados el Día de Hoy</div>
+            <div class="huge"><%= @createdTasks %></div>
+            <div>Creadas el Día de Hoy</div>
           </div>
         </div>
       </div>
         <div class="panel-footer">
-          <span class="pull-left">Nuevo Usuario</span>
+          <span class="pull-left">Nueva Tarea</span>
           <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
           <div class="clearfix"></div>
         </div>
       <% end %>
     </div>
   </div>
+
   <div class="col-lg-3 col-md-6">
-    <div class="panel panel-blue">
-      <%= link_to users_all_path do %>
+    <div class="panel panel-yellow">
+      <%= link_to tasks_assigned_path do %>
 
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-search fa-5x"></i>
+            <i class="fa fa-list-ul fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <div class="huge"><%= @users %></div>
-            <div>En la base de datos</div>
+            <div class="huge"><%= @myTasks %></div>
+            <div>Asignadas</div>
           </div>
         </div>
       </div>
         <div class="panel-footer">
-          <span class="pull-left">Buscar Usuarios</span>
+          <span class="pull-left">Ver Tareas</span>
           <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
           <div class="clearfix"></div>
         </div>
       <% end %>
     </div>
   </div>
-
-
 </div>

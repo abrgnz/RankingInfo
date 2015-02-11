@@ -11,6 +11,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def admin_zone
+    unless is_admin?
+      redirect_to dashboard_path
+      flash[:danger] = "No tienes los suficientes permisos."
+    end
+  end
 
+
+  def no_need_for_login
+    redirect_to dashboard_path if logged_in?
+  end
 
 end

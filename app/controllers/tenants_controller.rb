@@ -10,6 +10,10 @@ class TenantsController < ApplicationController
     @updatedTenants = Tenant.updated_today
   end
 
+  def search
+    @tenants = Tenant.search(params[:search])
+  end
+
   # GET /tenants/1
   # GET /tenants/1.json
   def show
@@ -72,6 +76,6 @@ class TenantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tenant_params
-      params.require(:tenant).permit(:nombre, :apellido_paterno, :apellido_materno, :domicilio, :calle, :no_interior, :no_exterior, :colonia, :ciudad, :estado, :codigo_postal, :municipio, :delegacion, :telefono_casa, :telefono_movil, :curp, :ife, :estado_civil, :arrendador_actual, :arrendador_anterior, :domicilio_anterior, :nombre_aval, :domicilio_aval, :telefono_aval)
+      params.require(:tenant).permit(:nombre, :apellido_paterno, :apellido_materno, :domicilio, :calle, :no_interior, :no_exterior, :colonia, :ciudad, :estado, :codigo_postal, :municipio, :delegacion, :telefono_casa, :telefono_movil, :curp, :ife, :estado_civil, :arrendador_actual, :arrendador_anterior, :domicilio_anterior, :nombre_aval, :domicilio_aval, :telefono_aval,:search)
     end
 end

@@ -1,4 +1,18 @@
 class Task < ActiveRecord::Base
-  has_many :task_alerts
-  has_many :users, through: :task_alerts
+  belongs_to :user
+
+  def self.created_today
+    where('created_at >= ?', 1.day.ago)
+  end
+
+  def self.task_not_done(session,privileges)
+    privileges == "1"? where('done == "f"') : where('user_id = ? AND done == "f"',session)
+  end
+
+  def self.task_done(session,privileges)
+    privileges == "1"? where('done == "t"') : where('user_id = ? AND done == "t"',session)
+
+  end
+
+
 end
