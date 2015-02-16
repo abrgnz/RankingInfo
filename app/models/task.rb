@@ -1,6 +1,12 @@
 class Task < ActiveRecord::Base
   belongs_to :user
 
+  validates :title, presence: true
+  validates :description, presence: true
+
+  validates :user_id, presence: true
+
+
   def self.created_today
     where('created_at >= ?', 1.day.ago)
   end

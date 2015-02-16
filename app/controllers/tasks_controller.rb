@@ -33,6 +33,7 @@ class TasksController < ApplicationController
 
 
   def assigned_tasks
+    Task.where(user_id: nil).destroy_all
     @unfinishedTasks = Task.task_not_done(session[:user_id],session[:user_privileges])
     @finishedTasks = Task.task_done(session[:user_id],session[:user_privileges]).limit(15)
   end
